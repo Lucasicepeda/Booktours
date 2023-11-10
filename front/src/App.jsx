@@ -13,6 +13,8 @@ import Registro from './components/Registro/Registro';
 import Login from './components/Login/Login';
 import DataUser from './components/DataUser/DataUser';
 
+/* Test Gabo */
+
 function App() {
 	return (
 		<BrowserRouter>
