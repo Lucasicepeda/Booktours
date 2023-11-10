@@ -1,0 +1,114 @@
+.divBody {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.divBody .first-part {
+    width: 100%;
+    min-height: 55vh;
+    background-image: url('./Images/BackgroundSearch.png');
+    background-position: top;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divBody .first-part input {
+    width: 40%;
+    height: 50px;
+    border-radius: 20px 0px 0px 20px;
+    background: #99B4BF;
+    border: none;
+    text-indent: 4%;
+}
+
+.divBody .first-part input::placeholder {
+    color: white;
+    text-shadow: 1px 1px 5px black;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.divBody .first-part button {
+    height: 50px;
+    min-width: 10%;
+    border: none;
+    border-radius: 0px 20px 20px 0;
+    background: #243C58;
+    color: white;
+    font-weight: 600;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.divBody .first-part button:hover {
+    background: #37485c;
+}
+
+.divBody .first-part button:active {
+    background: #574e4e;
+}
+
+/* Carrusel */
+.second-part {
+    width: 100%;
+}
+
+.second-part .slide-container img {
+    width: 300px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 1px 5px 10px black;
+    margin: 10px 0px;
+    
+}
+
+.second-part .slide-container {
+    background-color: #574e4e79;
+    width: 100%;
+}
+
+.second-part .slide-container .carrusel_text {
+    position: absolute;
+    bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0.8rem;
+}
+
+.carrusel_text h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carrusel_text p {
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+}
+
+@media screen and (max-width:769px) {
+    .divBody .first-part input {
+        width: 70%;
+    }
+
+    .second-part .slide-container img {
+        width: 100%;
+    }
+
+    .divBody .first-part input::placeholder {
+        font-size: 10px;
+    }
+
+    .divBody .first-part button {
+        font-size: 10px;
+        padding: 0 6px;
+    }
+}

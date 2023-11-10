@@ -1,0 +1,75 @@
+/* Estilos para AdmiPanel.js */
+
+/* Estilos para computadoras de escritorio (ancho de pantalla mayor o igual a 768px) */
+@media (min-width: 768px) {
+    /* Aquí puedes agregar estilos específicos para computadoras de escritorio */
+    
+    #mensaje-movil {
+        display: none; 
+      }
+  }
+  
+  /* Estilos para dispositivos móviles (ancho de pantalla menor a 768px) */
+  @media (max-width: 767px) {
+    #mensaje-movil {
+        display: block; 
+        text-align: center;
+        font-size: 20px;
+        padding: 1rem;
+      }
+      
+    .admin-panel, .card, .panel-title {
+      display: none; /* Ocultar todo el contenido en dispositivos móviles */
+    }
+    
+
+  }
+
+.admin-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f7f7; /* Fondo blanco con un toque de gris */
+  }
+  
+  .panel-title {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente a una fuente elegante de tu elección */
+    font-size: 40px; /* Tamaño grande para el título */
+    margin-bottom: 20px; /* Espacio entre el título y las tarjetas */
+
+  }
+  
+  .card {
+    width: 40%;
+    background-color: #fff; /* Fondo blanco para las tarjetas */
+    border: 1px solid #e0e0e0; /* Borde ligero */
+    border-radius: 5px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+  }
+  
+  .action-button {
+    width: 100%;
+    padding: 20px; /* Altura más grande para un diseño rectangular */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .action-button:hover {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	box-sizing: content-box;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.card {
+	padding: 2em;
+}
+
+.read-the-docs {
+	color: #888;
+}

@@ -1,0 +1,81 @@
+.cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem 4rem;
+    margin-top: 2rem;
+}
+
+.cardDiv {
+    width: 40%;
+    display: flex;
+    border-radius: 1rem;
+    background: #C1DDE9;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.555);
+}
+
+.cardText {
+    width: 50%;
+    padding-left:15px;
+}
+
+.cardText h4 {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: start;
+    /* text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.555); */
+    margin-bottom: 1.4rem;
+    padding-top: 15px;
+}
+
+.cardText button {
+    width: 100px;
+    height: 30px;
+    border-radius: 6px;
+    margin: 15px;
+    border: solid 2px #2E4B73;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 600;
+    background-color: #2E4B73;
+    color: white;
+}
+
+.cardText button:hover {
+    background-color: #4d5d74;
+}
+
+.cardText button:active {
+    background-color: #6d6868;
+}
+
+.cardDiv img {
+    width: 50%;
+    object-fit: cover;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.cardInterText {
+    width: 100%;
+    text-align: left;
+}
+
+.price {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.parr {
+    margin: 3px;
+}
+
+/* boton 2E4B73 */
+/* Letras 3E4439 */
+
+@media screen and (max-width:769px) {
+    .cardDiv {
+        width: 100%;
+    }
+}

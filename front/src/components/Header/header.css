@@ -1,0 +1,156 @@
+/* header.css */
+
+/* Header container */
+header {
+  background-color: #243C58;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+}
+
+/* Logo and slogan container */
+.divNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 2rem;
+  color: white;
+}
+
+.divNav span {
+  font-size: 12px;
+}
+
+/* Logo image */
+.divNav img {
+  width: 126px;
+  height: 113px;
+
+}
+
+/* Buttons container */
+.divButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 1rem;
+  margin-right: 10px;
+
+}
+
+.buttonOff {
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  border-radius: 6px;
+  transition: 0.3s;
+  text-decoration: none;
+  background: brown;
+}
+
+.buttonOn {
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  border-radius: 6px;
+  transition: 0.3s;
+  text-decoration: none;
+  background: #D9B80B;
+}
+
+/* Change button color on hover */
+.divButtons button:hover {
+  background-color: #45a049;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  /* Hereda el color del texto del elemento contenedor */
+}
+
+.menuButton {
+  display: none;
+}
+
+.avatar {
+  color: wheat;
+  font-size: 2rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: 1px solid;
+  padding: 6px;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.green {
+  background-color: #45a049;
+}
+
+.avatar:hover {
+  background-color: gray;
+}
+
+/* Mobile-first styles */
+@media screen and (max-width: 480px) {
+
+  .divNav span {
+    font-size: 10px;
+
+  }
+
+  .divNav {
+    margin-left: 10px;
+  }
+
+
+  .divButtons button {
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    background: #D9B80B;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 480px) {
+    .divButtons {
+      display: none;
+    }
+
+    /* Mobile menu styles */
+    .showMenu .divButtons {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #5f5f5f;
+      padding: 10px;
+
+    }
+
+    /* Mobile menu button styles */
+    .menuButton {
+      display: block;
+      margin-right: 15px;
+      color: #D9B80B;
+      width: 32px;
+      height: 25px;
+    }
+  }
+}
