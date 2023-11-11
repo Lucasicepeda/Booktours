@@ -1,4 +1,6 @@
-/* header.css */
+*{
+  position: static;
+}
 
 /* Header container */
 header {
@@ -55,6 +57,7 @@ header {
   transition: 0.3s;
   text-decoration: none;
   background: brown;
+  border: none;
 }
 
 .buttonOn {
@@ -68,6 +71,7 @@ header {
   transition: 0.3s;
   text-decoration: none;
   background: #D9B80B;
+  border: none;
 }
 
 /* Change button color on hover */

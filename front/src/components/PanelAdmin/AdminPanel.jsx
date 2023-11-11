@@ -8,13 +8,6 @@ function AdmiPanel() {
   return (
 
     <div className="admin-panel">
-                  <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
       <div id="mensaje-movil">
         <p>Esta página solo está disponible para computadoras de escritorio.</p>
       </div>

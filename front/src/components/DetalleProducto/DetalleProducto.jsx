@@ -12,13 +12,6 @@ const DetalleProducto = () => {
 
     return (
         <div className="">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
             <div className="top-container">
                 <div className='product-title'>
                     <h1>{"DETALLE PRODUCTO"}</h1>
