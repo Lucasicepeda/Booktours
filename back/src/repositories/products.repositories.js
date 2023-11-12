@@ -8,8 +8,18 @@ export default class ProductRepository {
         return result;
     };
 
-    getAll = async (limit, page, query, random) => {
-        const result = await productManager.getAll(limit, page, query, random);
+    getAll = async (query, options) => {
+        const result = await productManager.getAll(query, options);
+        return result;
+    };
+    
+    getRandom = async (limit) => {
+        const result = await productManager.getRandom(limit);
+        return result;
+    };
+
+    count = async () => {
+        const result = await productManager.count();
         return result;
     };
 };

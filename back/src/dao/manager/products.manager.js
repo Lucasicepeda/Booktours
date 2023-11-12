@@ -6,7 +6,17 @@ export default class Product {
         return await productModel.create(product);
     };
 
-    save = async (limit, page, query, random) => {
-        return await productModel.paginate(query, { limit, page, lean: true, sort: sortResult });
+    getAll = async (query, options) => {
+        return await productModel.paginate(query, options);
+    };
+   
+    getRandom = async (limit) => {
+        return await productModel.aggregate([
+            { $sample: { size: limit } },
+        ]);
+    };
+
+    count = async () => {
+        return await productModel.countDocuments();
     };
 };
