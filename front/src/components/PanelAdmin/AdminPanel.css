@@ -30,7 +30,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 140px;
     height: 100vh;
     background-color: #f7f7f7; /* Fondo blanco con un toque de gris */
   }
@@ -41,11 +40,25 @@
     margin-bottom: 20px; /* Espacio entre el título y las tarjetas */
 
   }
-
-/*
+  
   .card {
     width: 40%;
-    padding: 20px;
+    background-color: #fff; /* Fondo blanco para las tarjetas */
+    border: 1px solid #e0e0e0; /* Borde ligero */
+    border-radius: 5px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+  }
+  
+  .action-button {
+    width: 100%;
+    padding: 20px; /* Altura más grande para un diseño rectangular */
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -56,24 +69,6 @@
     padding: 3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-
-  .card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  }
-*/
-
-  .action-button {
-    width: 20vw;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 24px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 40px;
-  } 
   
   .action-button:hover {
     background-color: #0056b3;

@@ -70,19 +70,21 @@ const DataUser = () => {
 
     return (
         <div className="form-container">
-                  <br />
             <br />
             <br />
             <br />
             <br />
             <br />
-            <h2>Formulario de registro</h2>
+            <br />
+            <br />
+            <br />
+            <h2>Modoficar datos</h2>
             <form onSubmit={handleSubmit}>
                 <input onChange={handleChange} value={inputValues.name} type="text" name="name" required />
                 <input onChange={handleChange} value={inputValues.lastName} type="text" name="lastName" required />
                 <input onChange={handleChange} value={inputValues.email} type="email" name="email" required />
                 <br></br>
-                <button className="registro" type="submit">Registrarse</button>
+                <button className="registro" type="submit">Modificar</button>
             </form>
         </div>
     );

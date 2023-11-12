@@ -7,4 +7,9 @@ export default class ProductRepository {
         const result = await productManager.save(product);
         return result;
     };
+
+    getAll = async (limit, page, query, random) => {
+        const result = await productManager.getAll(limit, page, query, random);
+        return result;
+    };
 };

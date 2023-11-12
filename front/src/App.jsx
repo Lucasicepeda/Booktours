@@ -13,6 +13,7 @@ import Registro from './components/Registro/Registro';
 import Login from './components/Login/Login';
 import DataUser from './components/DataUser/DataUser';
 
+/* Test Gabo */
 
 function App() {
 	return (
@@ -39,7 +40,7 @@ function App() {
 					<Route path={routes.Galeria} element={<Galeria />} />
 					<Route path={routes.dataUser} element={<DataUser />}/>
 				</Routes>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</BrowserRouter>
 	)

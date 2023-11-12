@@ -1,8 +1,11 @@
+/* .top-container {
+    position: absolute;
+} */
+
 .top-container {
     display: flex;
     justify-content: space-between;
     padding: 60px 60px;
-    padding-top: 230px;
 }
 
 .top-container .product-title {

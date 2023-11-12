@@ -15,17 +15,18 @@ function Header() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     window.location.reload();
-  }; 
+  };
 
   const [avatar, setAvatar] = useState({ a: '', b: '' });
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await current();
       const avatar = {
         a: data.data.name.charAt(0).toUpperCase(),
         b: data.data.lastName.charAt(0).toUpperCase(),
-        role: data.data.role
+        role: data.data.role,
+        name: data.data.name
       };
       setAvatar(avatar);
     };
@@ -38,31 +39,57 @@ function Header() {
         <a href="/"> {/* Establece la URL de tu página principal */}
           <img src='./src/assets/logo.png' alt='logo' />
         </a>
-        <span>Viví experiencias inolvidables</span>
+        <span><Link to="/">Viví la experiencias inolvidables</Link></span>
       </div>
 
-      {token && <div className='avatar'><Link to="/dataUser">{avatar.a} {avatar.b}</Link></div>}
 
-      <div className={` divButtons ${menuVisible ? 'showMenu' : ''}`}>
 
-        {!token && <button className='buttonOn' id="createAccountButton"><Link to="/Registro">Crear cuenta</Link></button>}
-        
-        {
-          avatar.role === 'user' || !avatar.role ? "" :
-          <button className='buttonOn green'><Link to="/administracion">Panel</Link></button>
-        }
+      <div className='divAvatar'>
 
-        <button id="loginButton" className={`divButtons ${token ? 'buttonOff' : 'buttonOn'}`}>
-          {token ?
-            (<Link onClick={handleLogout}>Cerrar Sesión</Link>) :
-            (<Link to="/login">Iniciar Sesión</Link>)}
+        <div className='avatarContainer'>
+          {token && <p>Hola! {avatar.name}</p>}
+          {token && <div className='avatar'><Link to="/dataUser">{avatar.a} {avatar.b}</Link></div>}
+          <p className='editPeril'>Editar perfil</p>
+        </div>
+
+        <div className={` divButtons ${menuVisible ? 'showMenu' : ''}`}>
+
+          {!token && <button className='buttonOn' id="createAccountButton"><Link to="/Registro">Crear cuenta</Link></button>}
+
+          {
+            avatar.role === 'user' || !avatar.role ? "" :
+              <button className='buttonOn green'><Link to="/administracion">Panel</Link></button>
+          }
+
+          <button id="loginButton" className={`divButtons ${token ? 'buttonOff' : 'buttonOn'}`}>
+            {token ?
+              (<Link onClick={handleLogout}>Cerrar Sesión</Link>) :
+              (<Link to="/login">Iniciar Sesión</Link>)}
+          </button>
+        </div>
+
+        <button className={`menuButton ${menuVisible ? 'active' : ''}`} onClick={toggleMenu}>
+          ☰
         </button>
-      </div>
 
-      <button className="menuButton" onClick={toggleMenu}>
-        ☰
-      </button>
-    </header>
+        <div className={`modal ${menuVisible ? 'active' : ''}`}>
+          <div className='modalContainer'>
+            {!token && <button className='buttonOn' id="createAccountButton"><Link to="/Registro">Crear cuenta</Link></button>}
+
+            {avatar.role === 'user' || !avatar.role ? "" :
+              <button className='buttonOn green'><Link to="/administracion">Panel</Link></button>
+            }
+
+            <button id="loginButton" className={`${token ? 'buttonOff' : 'buttonOn'}`}>
+              {token ?
+                (<Link onClick={handleLogout}>Cerrar Sesión</Link>) :
+                (<Link to="/login">Iniciar Sesión</Link>)}
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </header >
   );
 };
 
