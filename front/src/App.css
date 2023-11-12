@@ -11,10 +11,11 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-.card {
-	padding: 2em;
-}
-
 .read-the-docs {
 	color: #888;
+}
+
+.place {
+	height: 150px;
+	width: 100%;
 }

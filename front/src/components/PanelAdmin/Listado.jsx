@@ -11,8 +11,6 @@ function Listado() {
 
   return (
     <div className='container'>
-      <div className='place'></div>
-
       <h2>Lista de productos</h2>
       {/* <BackToAdminPanelButton/> */}
       {/* <table className="listadoTable">

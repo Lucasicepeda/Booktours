@@ -8,7 +8,7 @@ function Footer() {
     return (
         <footer className="footer-container">
             <div className="footer-logo">
-                <img src='./src/assets/solo-logo.jpeg' alt='logo' />
+                <img src='./src/assets/solo-logo.png' alt='logo' />
                 <p> © 2023 Equipo2. Todos los derechos reservados. </p>
             </div>
             <div className='side-right'>

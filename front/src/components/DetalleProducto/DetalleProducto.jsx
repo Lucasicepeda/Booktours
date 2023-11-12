@@ -3,7 +3,6 @@ import React from 'react';
 import './DetalleProducto.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBellConcierge, faChevronLeft, faHandsHoldingCircle, faLanguage, faUtensils, faVanShuttle, faWifi } from '@fortawesome/free-solid-svg-icons';
-// import 'font-awesome/css/font-awesome.min.css';
 import { Link } from "react-router-dom";
 import Galeria from '../GaleriaProducto/Galeria';
 
@@ -19,7 +18,6 @@ const DetalleProducto = () => {
                 <div className="back-home">
                     <Link to={"/"} >
                         <FontAwesomeIcon icon={faChevronLeft} />
-                        
                     </Link>
                 </div>
             </div>

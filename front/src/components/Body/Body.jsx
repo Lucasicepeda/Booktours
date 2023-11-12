@@ -9,13 +9,6 @@ function Body() {
 
   return (
     <div className='divBody' >
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
       <div className="first-part">
         <input type="text" placeholder="Buscar por Destino, Actividad o Interés" />
         <button className="search-button">BUSCAR</button>
