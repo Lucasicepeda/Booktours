@@ -5,7 +5,7 @@ export const data = [
         cancel: 'Cancelación Gratuita',
         price: 1700,
         url: 'https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2022/07/19/16582394714572.jpg',
-        id: 1
+        id: 1,
     },
     {
         title: 'Tour 2',

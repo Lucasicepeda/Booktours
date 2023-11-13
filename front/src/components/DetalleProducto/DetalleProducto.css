@@ -34,10 +34,10 @@
 .back-home:hover {
     /* Estilos en hover */
     /* background-color: #ddd; Color de fondo al pasar el ratón sobre el título */
-    transform: scale(1.15); /* Aumentar el tamaño en hover */
+    transform: scale(1.15); 
 }
 
-
+/* Seccion Servicios Incluidos */
 .serviciosIncluidos h2{
     align-content: center;
     margin: 40px 0px;
@@ -47,7 +47,8 @@
     grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual ancho */
     grid-template-rows: repeat(2, 1fr);    /* 2 filas de igual altura */
     gap: 15px;
-    margin: 20px 100px;
+    margin: 20px 200px;
+    justify-items: stretch;
 }
 
 .gridServices div{
