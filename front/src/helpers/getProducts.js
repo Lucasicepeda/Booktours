@@ -1,9 +1,7 @@
 
 const getProducts = async (obj) => {
 
-    const url = `http://localhost:8080/api/product?${obj.page ? `page=${obj.page}&` : ''}${obj.query ? `query=${obj.query}&` : '' }${obj.random ? `random=${obj.random}&` : ''}`;
-
-    console.log(url);
+    const url = `http://localhost:8080/api/product?${obj.page ? `page=${obj.page}&` : ''}${obj.query ? `query=${obj.query}&` : '' }${obj.random ? `random=${obj.random}` : ''}`;
 
     const response = await fetch(url, {
         method: 'GET',

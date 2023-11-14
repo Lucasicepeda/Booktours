@@ -7,16 +7,15 @@
   display: flex;
   align-content:space-evenly;
   justify-content: center;
-  gap: 30px;
-  max-height: 600px;
-  margin: 30px;
+  gap: 50px;
+  height: 600px;
 }
 
 .image-container .imgs-side{
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual ancho */
   grid-template-rows: repeat(2, 1fr);    /* 2 filas de igual altura */
-  gap: 30px;                            /* Espacio entre elementos */
+  gap: 15px;                            /* Espacio entre elementos */
   overflow-y: auto; 
 }
 
@@ -63,9 +62,9 @@
 
 .verMasBtn{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    margin: 20px 400px 20px 20px;
 }
-
 
 .verMasBtn button{
   font-size: 20px;
@@ -86,16 +85,15 @@
   width: 100%;
   height: 100%;
   background: rgba(147, 143, 143, 0.541);
-  backdrop-filter: blur(5px);  
   display: flex;
   align-items: center;
-  z-index: 9999;
 }
 .overlay img {
   display: block;
-  /* width: 50vw; */
-  height: 60vh;
-  margin: auto;
+  width: 70vw;
+  max-width: 60%;
+  /* max-height: 80%; */
+  margin: 20px auto;
   border-radius: 15px;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
 }
@@ -109,17 +107,6 @@
   cursor: pointer;
   text-shadow: 3px 5px 7px rgba(18, 57, 112, 0.5);
 }
-
-.overlay-arrows_left svg {
-  width: 50px;
-  height: 50px;
-}
-
-.overlay-arrows_right svg {
-  width: 50px;
-  height: 50px;
-}
-
 .overlay-arrows_left {
   display: flex;
   justify-content: space-between;
@@ -132,6 +119,16 @@
   z-index: 999;
   margin-left: 8vw;
   cursor: pointer;
+}
+
+.overlay-arrows_left svg {
+  width: 50px;
+  height: 50px;
+}
+
+.overlay-arrows_right svg {
+  width: 50px;
+  height: 50px;
 }
 
 .overlay-arrows_right {

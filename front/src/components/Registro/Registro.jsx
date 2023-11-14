@@ -53,6 +53,13 @@ const Form = () => {
 
   return (
     <div className="form-container">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <h2>Formulario de registro</h2>
       <form onSubmit={handleSubmit}>
         <input onChange={handleInputChange} value={values.name} type="text" name="name" placeholder="Nombre" required />

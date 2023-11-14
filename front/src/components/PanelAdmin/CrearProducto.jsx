@@ -5,14 +5,13 @@ import { newProduct } from '../../helpers/newProduct.js';
 import Swall from 'sweetalert2';
 
 function CrearProducto() {
-
   const [values, setValues] = useState({
     title: "",
-    city: "",
+    category: "",
     smalldescription: "",
     description: "",
     price: "",
-    url: ""
+    files: [],
   });
 
   const handleInputChange = (e) => {
@@ -22,55 +21,66 @@ function CrearProducto() {
     });
   };
 
+  const handleFileChange = (e) => {
+    setValues({
+      ...values,
+      files: e.target.files,
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await newProduct(values);
 
-    if (data || data.error) {
-      Swall.fire({
-        text: data.error,
-        toast: true,
-        position: "top-right",
-        showConfirmButton: false
-      });
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
-    };
+    const formData = new FormData();
+    formData.append('title', values.title);
+    formData.append('category', values.category);
+    formData.append('smalldescription', values.smalldescription);
+    formData.append('description', values.description);
+    formData.append('price', values.price);
 
-    if (data || data.data.status === 'success') {
-      Swall.fire({
-        text: 'Usuario creado correctamente',
-        toast: true,
-        position: "top-right",
-        showConfirmButton: false
-      });
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+    for (let i = 0; i < values.files.length; i++) {
+      formData.append('files', values.files[i]);
     };
+    
+    const data = await newProduct(formData);
+
+    // if (data && data.error) {
+    //   Swall.fire({
+    //     text: data.error,
+    //     toast: true,
+    //     position: "top-right",
+    //     showConfirmButton: false
+    //   });
+    //   setTimeout(() => {
+    //     window.location.reload();
+    //   }, 3000);
+    // }
+
+    // if (data && data.data.status === 'success') {
+    //   Swall.fire({
+    //     text: 'Producto creado correctamente',
+    //     toast: true,
+    //     position: "top-right",
+    //     showConfirmButton: false
+    //   });
+    //   setTimeout(() => {
+    //     window.location.reload();
+    //   }, 3000);
+    // };
   };
 
   return (
     <div className='form'>
-      <h2>Agregar Producto</h2>
-      <form onSubmit={handleSubmit}>
+      <div className='place'></div>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <h2>Nuevo Producto</h2>
         <input className='controls' onChange={handleInputChange} value={values.title} type="text" name="title" placeholder="Nombre" required />
-        <input className='controls' onChange={handleInputChange} value={values.city} type="text" name="city" placeholder="Pais" required />
+        <input className='controls' onChange={handleInputChange} value={values.category} type="text" name="category" placeholder="Categoria" required />
         <input className='controls' onChange={handleInputChange} value={values.smalldescription} type="text" name="smalldescription" placeholder="Breve descripcion" required />
         <input className='controls' onChange={handleInputChange} value={values.description} type="text" name="description" placeholder="Descripción" required />
         <input className='controls' onChange={handleInputChange} value={values.price} type="text" name="price" placeholder="Precio" required />
-        <input className='controls' onChange={handleInputChange} value={values.url} type="text" name="url" placeholder="url de la imagen" required />
-        <br></br>
-        <div>
-          <button className='botonsOk' >Guardar Producto</button>
-        </div>
-        <div>
-          <Link to="/administracion">
-            <button className='botonsNo'>Cancelar</button>
-          </Link>
-        </div>
+        <input className='controls' type="file" id="file" name="files" accept="image/*" onChange={handleFileChange} multiple required />
+        <button className='botonsOk'>Guardar Producto</button>
       </form>
     </div>
   );

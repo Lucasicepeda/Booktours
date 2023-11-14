@@ -4,10 +4,10 @@ const newProduct = async (product) => {
     
     const response = await fetch('http://localhost:8080/api/product', {
         method: 'POST',
-        body: JSON.stringify(product),
+        body: product,
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
         }
     });

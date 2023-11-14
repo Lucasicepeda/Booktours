@@ -13,38 +13,61 @@ const save = async (products) => {
     return { status: 'succes', products };
 };
 
+let cachedProducts = null;  // Variable para almacenar los productos obtenidos la primera vez
+
 const getAll = async (limit, page, query, random) => {
-
-    console.log(random);
-
-    if (random) {
+    if (random === '1') {
         const count = await productRepository.count();
-        const randomProducts = await productRepository.getRandom(count);
-        const totalDocs = randomProducts.length;
-
-        const startIdx = (page - 1) * limit;
+        const startIdx = (+page - 1) * limit;
         const endIdx = startIdx + limit;
+        const totalDocs = count;
+
+        const randomProducts = await productRepository.getRandom(count);
         const paginatedProducts = randomProducts.slice(startIdx, endIdx);
 
-        console.log(paginatedProducts);
+        cachedProducts = randomProducts;
 
-        return {
-            status: 'success',
-            products: {
-                docs: paginatedProducts,
-                totalDocs,
-                limit,
-                totalPages: Math.ceil(totalDocs / limit),
-                page,
-                pagingCounter: 1,
-                hasPrevPage: page > 1,
-                hasNextPage: endIdx < totalDocs,
-                prevPage: page > 1 ? page - 1 : null,
-                nextPage: endIdx < totalDocs ? page + 1 : null,
-                prevLink: page > 1 ? page - 1 : null,
-                nextLink: endIdx < totalDocs ? page + 1 : null,
-            },
+        const products = {
+            docs: paginatedProducts,
+            totalDocs,
+            limit,
+            totalPages: Math.ceil(totalDocs / limit),
+            page: +page,
+            pagingCounter: 1,
+            hasPrevPage: +page > 1,
+            hasNextPage: endIdx < totalDocs,
+            prevPage: +page > 1 ? +page - 1 : null,
+            nextPage: endIdx < totalDocs ? +page + 1 : null,
+            prevLink: +page > 1 ? +page - 1 : null,
+            nextLink: endIdx < totalDocs ? +page + 1 : null,
         };
+
+        return { status: 'success', products };
+    };
+
+    if (random === '2') {
+        const startIdx = (+page - 1) * limit;
+        const endIdx = startIdx + limit;
+        const totalDocs = cachedProducts.length;
+
+        const paginatedProducts = cachedProducts.slice(startIdx, endIdx);
+
+        const products = {
+            docs: paginatedProducts,
+            totalDocs,
+            limit,
+            totalPages: Math.ceil(totalDocs / limit),
+            page: +page,
+            pagingCounter: 1,
+            hasPrevPage: +page > 1,
+            hasNextPage: endIdx < totalDocs,
+            prevPage: +page > 1 ? +page - 1 : null,
+            nextPage: endIdx < totalDocs ? +page + 1 : null,
+            prevLink: +page > 1 ? +page - 1 : null,
+            nextLink: endIdx < totalDocs ? +page + 1 : null,
+        };
+
+        return { status: 'success', products };
     };
 
     let queryObj = {};
@@ -52,12 +75,13 @@ const getAll = async (limit, page, query, random) => {
 
     const products = await productRepository.getAll(queryObj, +limit, +page);
 
-    if (page > products.totalPages || page <= 0) throw new ProductNotFound('Esta página no existe')
+    if (page > products.totalPages || page <= 0) throw new ProductNotFound('Esta página no existe');
 
     products.prevLink = products.hasPrevPage ? products.prevPage : null;
     products.nextLink = products.hasNextPage ? products.nextPage : null;
 
     return { status: 'success', products };
 };
+
 
 export { save, getAll };

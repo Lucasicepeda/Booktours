@@ -2,10 +2,22 @@ import * as productService from '../services/products.services.js';
 import { ProductNotFound } from '../utils/exceptions.utils.js';
 
 const save = async (req, res) => {
+
+    const product = req.body;
+    const files = req.files
+    console.log(product);
+    console.log(files);
+    
+    
     try {
-        const result = await productService.save({ ...req.body });
-        if (result) return res.sendSuccess(result);
+        // console.log(imgName);
+        // console.log(imgUrl);
+        // const result = await productService.save({ ...req.body });
+        // if (result) return res.sendSuccess(result);
     } catch (error) {
+
+        console.log(error.message);
+
         if (error instanceof ProductNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };
@@ -19,9 +31,6 @@ const getAll = async (req, res) => {
         const result = await productService.getAll(limit, page, query, random);
         if (result) return res.sendSuccess(result);
     } catch (error) {
-
-        console.log(error); // >>>>>>>>>>>>>>><<<<<<<<<<<<<<Sacararrrrrr
-
         if (error instanceof ProductNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };

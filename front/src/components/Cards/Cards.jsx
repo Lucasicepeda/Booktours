@@ -7,19 +7,19 @@ const Cards = () => {
 
     useEffect(() => {
         const products = async () => {
-            const product = await getProducts({random: 1});
+            const product = await getProducts({ random: 1 });
             setProductos(product.products);
         };
         products();
     }, []);
 
     const handleNextPage = async () => {
-        const product = await getProducts(productos.nextPage);
+        const product = await getProducts({ page: productos.nextPage, random: 2 });
         setProductos(product.products);
     };
 
     const handlePrevPage = async () => {
-        const product = await getProducts(productos.prevPage);
+        const product = await getProducts({ page: productos.prevPage, random: 2 });
         setProductos(product.products);
     };
 
@@ -48,7 +48,5 @@ const Cards = () => {
         </div>
     );
 };
-
-// Hacer funcional el paginador que viene del back del random (este es el que falla el otro no).
 
 export default Cards;
