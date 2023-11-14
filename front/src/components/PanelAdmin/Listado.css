@@ -1,0 +1,96 @@
+.place {
+  min-height: 28vh;
+  width: 100%;
+}
+
+.listadoTable {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #243C58;
+  color: #fff;
+}
+
+.listadoTable th,
+.listadoTable td {
+  padding: 12px;
+  text-align: left;
+}
+
+.listadoTable th {
+  background-color: #1A2A3A;
+}
+
+.listadoTable tbody tr:nth-child(even) {
+  background-color: #1A2A3A;
+}
+
+.listadoTable tbody tr:hover {
+  background-color: #314560;
+}
+
+.acciones {
+  width: 200px;
+}
+
+.acciones button {
+  margin-right: 5px;
+  margin-left: 25px;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: .3s;
+}
+
+.acciones button:hover {
+  background-color: #2e7932;
+}
+
+.acciones .eliminarButton {
+  background-color: #af4c4c;
+}
+
+.acciones .eliminarButton:hover {
+  background-color: #b13434;
+}
+
+.paginador {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.paginador p {
+  margin: 0 2rem;
+}
+
+.paginador p span {
+  border: solid 1px #1A2A3A;
+  padding: 0px 8px;
+  border-radius: 6px;
+  background-color: #4CAF50;
+}
+
+.paginador button {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: solid 1px #1A2A3A;
+  padding: 0px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px;
+  transition: 0.3s;
+}
+
+.paginador button:hover {
+  background-color: #314560;
+}
+
+.paginador button:active {
+  box-shadow: none;
+}

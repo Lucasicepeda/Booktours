@@ -8,8 +8,8 @@ export default class ProductRepository {
         return result;
     };
 
-    getAll = async (query, options) => {
-        const result = await productManager.getAll(query, options);
+    getAll = async (query, limit, page) => {
+        const result = await productManager.getAll(query, limit, page);
         return result;
     };
     

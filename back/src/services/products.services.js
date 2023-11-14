@@ -14,16 +14,19 @@ const save = async (products) => {
 };
 
 const getAll = async (limit, page, query, random) => {
-    const options = { page, lean: true, limit };
+
+    console.log(random);
 
     if (random) {
-        const count = await productRepository.count(); 
+        const count = await productRepository.count();
         const randomProducts = await productRepository.getRandom(count);
         const totalDocs = randomProducts.length;
 
         const startIdx = (page - 1) * limit;
         const endIdx = startIdx + limit;
         const paginatedProducts = randomProducts.slice(startIdx, endIdx);
+
+        console.log(paginatedProducts);
 
         return {
             status: 'success',
@@ -38,26 +41,21 @@ const getAll = async (limit, page, query, random) => {
                 hasNextPage: endIdx < totalDocs,
                 prevPage: page > 1 ? page - 1 : null,
                 nextPage: endIdx < totalDocs ? page + 1 : null,
-                prevLink: page > 1 ? `/api/products?page=${page - 1}` : null,
-                nextLink: endIdx < totalDocs ? `/api/products?page=${page + 1}` : null,
+                prevLink: page > 1 ? page - 1 : null,
+                nextLink: endIdx < totalDocs ? page + 1 : null,
             },
         };
     };
 
     let queryObj = {};
-    if (query !== false) queryObj = { category: { $regex: query, $options: "i" } };
+    queryObj = query ? { category: { $regex: query, $options: "i" } } : {};
 
-    if (random) {
-        const randomProducts = await productRepository.getRandom(limit);
-        return { status: 'success', products: randomProducts };
-    };
+    const products = await productRepository.getAll(queryObj, +limit, +page);
 
-    const products = await productRepository.getAll(queryObj, options);
     if (page > products.totalPages || page <= 0) throw new ProductNotFound('Esta página no existe')
 
-    const url = '/api/products?';
-    products.prevLink = products.hasPrevPage ? `${url}page=${products.prevPage}` : null;
-    products.nextLink = products.hasNextPage ? `${url}page=${products.nextPage}` : null;
+    products.prevLink = products.hasPrevPage ? products.prevPage : null;
+    products.nextLink = products.hasNextPage ? products.nextPage : null;
 
     return { status: 'success', products };
 };
