@@ -84,6 +84,7 @@ function Galeria() {
                 </div>
             </div>
             <div className="verMasBtn">
+                <div></div>
                 <button onClick={toggleShowMore}>
                     {showMore ? "Ver Más" : "Ver Menos"}
                 </button>

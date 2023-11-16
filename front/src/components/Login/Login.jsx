@@ -38,13 +38,6 @@ const Logins = () => {
 
     return (
         <div className="form">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
                     <label>Email </label>
@@ -54,7 +47,6 @@ const Logins = () => {
                     <label>Password </label>
                     <input onChange={handleInputChange} value={values.password} type="password" name="password" required />
                 </div>
-                <br></br>
                 <button className="registro" type="submit">Iniciar sesión</button>
             </form>
         </div>

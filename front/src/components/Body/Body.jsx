@@ -11,7 +11,6 @@ function Body() {
 
   return (
     <div className='divBody' >
-      <div className='placeBody'></div>
 
       <div className="first-part">
         <input type="text" placeholder="Buscar por Destino, Actividad o Interés" />

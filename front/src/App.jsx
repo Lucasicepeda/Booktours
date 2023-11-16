@@ -22,6 +22,7 @@ function App() {
 			{/* Envuelve la aplicación con ContextGlobal para el estado global */}
 			<div className="app">
 				<Header />
+				<div className='place'></div>
 				<Routes>
 					{/*Página de inicio - Home*/}
 					<Route path="/" element={<Body />} />
@@ -40,7 +41,7 @@ function App() {
 					<Route path={routes.Galeria} element={<Galeria />} />
 					<Route path={routes.dataUser} element={<DataUser />}/>
 				</Routes>
-				{/* <Footer /> */}
+				<Footer />
 			</div>
 		</BrowserRouter>
 	)

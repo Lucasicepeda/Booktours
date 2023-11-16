@@ -1,5 +1,3 @@
-/* Footer CSS */
-
 .footer-container {
   width: 100%;
   margin-top: 2rem;
@@ -10,56 +8,50 @@
   padding: 20px 0;
   border-top: 1px solid #243C58;
   height: fit-content;
-}
-
-.footer-container p {
-  background-color: #243C58;
+  color: #FFF;
 }
 
 .footer-logo {
-  background-color: #243C58;
-  margin: 20px;
-}
-
-.footer-logo img {
-  width: 126px;
-  height: 113px;
-  background-color: #243C58;
-}
-
-.footer-info {
-  background-color: #243C58;
-  font-size: 16px;
-  color: #FFF;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 15px;
   margin: 20px;
 }
 
 .footer-logo p {
-  background-color: #243C58;
-  margin-bottom: 10px;
-  color: white;
-  font-size: 18;
-  font-weight: '400';
+  margin:0px 0px 10px 12px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
-.footer-social-media svg {
-  color: var(--blanco);
-  height: 20px;
-  width: 22px;
-  left: 1238px;
-  top: 16px;
-  margin-right: 15px;
+
+.footer-logo img {
+  width: 130px;
+  margin-bottom: 25px;
+  /* height: 113px; */
+}
+
+.side-right{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  }
+  margin-right: 20px;
+}
 
+.footer-social-media{
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  line-height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info {
+  line-height: 35px;
+  margin: 30px;
+}
   
-  
+  @media screen and (max-width:769px) {
+    .footer-container {
+      flex-direction: column;
+    }
+    .footer-social-media{
+      flex-direction: row;
+    }
+}

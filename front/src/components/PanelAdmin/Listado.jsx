@@ -25,8 +25,6 @@ function Listado() {
 
   return (
     <div className='container'>
-      <div className='place'></div>
-
       <h2>Lista de productos</h2>
       <table className="listadoTable">
 
@@ -54,12 +52,12 @@ function Listado() {
           ) : null}
         </tbody>
       </table>
-
+{/* 
       <div className='paginador'>
         {(productos && productos.hasPrevPage === true) && <button onClick={handlePrevPage}>{productos.prevPage}</button>}
         {productos.page && <p> <span>{productos.page}</span></p>}
         {(productos && productos.hasNextPage === true) && <button onClick={handleNextPage}>{productos.nextPage}</button>}
-      </div>
+      </div> */}
     </div>
   );
 };

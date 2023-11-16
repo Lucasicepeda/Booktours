@@ -47,7 +47,7 @@ function Header() {
       <div className='divAvatar'>
 
         <div className='avatarContainer'>
-          {token && <p>Hola! {avatar.name}</p>}
+          {token && <p>Hola {avatar.name}!</p>}
           {token && <div className='avatar'><Link to="/dataUser">{avatar.a} {avatar.b}</Link></div>}
           <p className='editPeril'>Editar perfil</p>
         </div>
