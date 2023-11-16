@@ -47,11 +47,29 @@
   margin: 30px;
 }
   
-  @media screen and (max-width:769px) {
+  @media (max-width: 768px) { /* TABLET */
     .footer-container {
-      flex-direction: column;
+      flex-direction: column-reverse;
+      padding: unset;
     }
     .footer-social-media{
-      flex-direction: row;
+      flex-direction: row;  
+    }
+    .side-right {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+    .footer-social-media{
+      gap: 15px
+    }
+    .footer-logo{
+      display: flex;
+      align-items: baseline;
+      margin: auto;
+      width: 100%;
+      justify-content: space-evenly;
     }
 }

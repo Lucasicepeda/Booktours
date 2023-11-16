@@ -150,24 +150,31 @@
 }
 
 @media (max-width: 768px) { /* TABLET */
-  .image-container>img{
-    /* height:300px; */
-    width: 100%;
-  }
   .image-container{
     flex-direction: column;
+    max-height: 760px;
+  }
+  .image-container>img{
+    width: 100%;
   }
   .image-container .imgs-side {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); /* Columnas automáticas de igual ancho */
-    grid-template-rows: repeat(2, minmax(0, 1fr));          /* Dos filas de igual altura */
+    grid-template-columns: repeat(4, 1fr); /* 2 columnas de igual ancho */
+    grid-template-rows: repeat(2, 1fr);    /* 2 filas de igual altura */
     gap: 30px;                            /* Espacio entre elementos */
-    overflow-x: auto; 
-    grid-auto-flow: row;                  /* Mantener el flujo predeterminado de arriba a abajo */
+    overflow-y: auto; 
   }
-
-
   .image-container .imgs-side img {
-  height: 200px;
+  height: 150px;
+  width: 150px;
+  }
+  .verMasBtn{
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: 0px
+  } 
+  .gridServices{  
+    margin: 20px 100px;
   }
 }

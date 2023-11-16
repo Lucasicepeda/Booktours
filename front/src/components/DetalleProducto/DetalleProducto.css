@@ -12,7 +12,6 @@
     margin: 10px 0px;
 }
 
-
 .product-title h1{
     display: flex;
     padding: 0;
@@ -29,7 +28,6 @@
     font-size: 50px;
     transition: background-color 0.3s, transform 0.3s; /* Transiciones para el efecto hover */
 }
-
 
 .back-home:hover {
     /* Estilos en hover */
@@ -68,9 +66,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin: 40px 0px;
+    margin: 0px 0px 40px 0px;
     background-color: rgb(217, 217, 217);
-    padding: 40px 0px;
+    padding: 35px 0px;
 }
 
 .description-container h3{
@@ -87,4 +85,8 @@
     border-radius: 15px;
     background-color: #2e4b73;
     color: white;
+}
+
+@media (max-width: 768px) { /* TABLET */
+    
 }

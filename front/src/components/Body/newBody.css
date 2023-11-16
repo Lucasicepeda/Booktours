@@ -94,9 +94,10 @@
     text-shadow: 1px 1px 5px rgb(0, 0, 0);
 }
 
-@media screen and (max-width:769px) {
+@media screen and (max-width:768px) {
     .divBody .first-part input {
         width: 60%;
+        margin-bottom: 0px
     }
 
     .second-part .slide-container img {
@@ -108,7 +109,11 @@
     }
 
     .divBody .first-part button {
-        font-size: 10px;
+        font-size: 15px;
         padding: 0 6px;
+    }
+
+    .divBody .first-part{
+        min-height:30vh
     }
 }
