@@ -70,15 +70,7 @@ const DataUser = () => {
 
     return (
         <div className="form-container">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <h2>Modoficar datos</h2>
+            <h2>Modificar datos</h2>
             <form onSubmit={handleSubmit}>
                 <input onChange={handleChange} value={inputValues.name} type="text" name="name" required />
                 <input onChange={handleChange} value={inputValues.lastName} type="text" name="lastName" required />

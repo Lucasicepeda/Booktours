@@ -1,16 +1,16 @@
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 32px 30px;
   margin-bottom: 35px;
   gap: 10px;
-  width: 50%;;
+  width: 50%;
 }
 .form-container h2 {
- color: #243C58;
- align-items: center;
- font-weight: 600;
+  color: #243c58;
+  align-items: center;
+  font-weight: 600;
 }
 .form-container {
   max-width: 500px;
@@ -21,28 +21,26 @@ form{
   justify-content: space-between;
   flex-direction: column;
   gap: 20px;
-
 }
 
-input{
-	background: #fff;
-	border: 3px solid transparent;
-	height: 35px;
-	line-height: 45px;
-	padding: 0 18px;
-    margin-bottom: 5px;
-	transition: .3s ease all;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    border: 1px solid #C2c2c2;
+input {
+  background: #fff;
+  border: 3px solid transparent;
+  height: 35px;
+  line-height: 45px;
+  padding: 0 18px;
+  margin-bottom: 5px;
+  transition: 0.3s ease all;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  border: 1px solid #c2c2c2;
 }
-
 
 .registro {
   display: block;
-padding: 15px 30px;
+  padding: 15px 30px;
   border: none;
-  background-color: #D9B80B;
+  background-color: #d9b80b;
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -55,11 +53,10 @@ padding: 15px 30px;
   transform: translateY(-2px);
 }
 
-
 .error {
   color: red;
-    text-align: center;
-    font-size: 13px;
+  text-align: center;
+  font-size: 13px;
 }
 
 .confirm {
@@ -69,8 +66,8 @@ padding: 15px 30px;
   font-weight: 600;
 }
 
-.link{
-  text-align: center;  
+.link {
+  text-align: center;
 }
 
 /* Estilos para pantallas más pequeñas (Responsive) */
