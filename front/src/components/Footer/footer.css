@@ -73,3 +73,10 @@
       justify-content: space-evenly;
     }
 }
+
+@media (max-width: 425px) { /* MOVIL */
+  .footer-logo{
+      flex-direction: column;
+      align-items: center;
+    }
+}

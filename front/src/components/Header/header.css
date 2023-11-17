@@ -12,7 +12,6 @@ header {
 /* Logo and slogan container */
 .divNav {
   display: flex;
-  /* flex-wrap:nowrap; */
   justify-content: center;
   align-items: center;
   color: white;
@@ -137,12 +136,14 @@ a {
   display: none;
 }
 
-/* Mobile-first styles */
 
-@media screen and (max-width: 480px) {
-
+@media (max-width: 425px) {
+  header {
+    height:auto;
+  }
   .divNav {
     position: relative;
+    /* flex-direction: column; */
   }
 
   .divButtons {
