@@ -30,3 +30,11 @@ Para obtener productos utilizamos la funcíon getProducts();
             
     - Para obtener los productos por categorias 
         ejemplo const productos = getProducts({query: familia});
+
+*** Prestaciones ***
+Las prestaciones getBenefit() devuelve el nombre de da la prestación el texto y una url con un icono.
+    ejemplo const icon = getBenefit()
+    console.log(icon) 
+        name: "wifi",
+        text: "Wifi gratis",
+        url: "https://img.icons8.com/metro/26/wifi.png"

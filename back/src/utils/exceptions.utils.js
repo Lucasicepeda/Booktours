@@ -18,3 +18,10 @@ export class CategoryNotFound extends Error {
         this.name = this.constructor.name;
     };
 };
+
+export class BenefitNotFound extends Error {
+    constructor(message) {
+        super(message);
+        this.name = this.constructor.name;
+    };
+};
