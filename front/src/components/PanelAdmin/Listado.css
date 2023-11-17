@@ -5,8 +5,7 @@
   color: #fff;
 }
 
-.listadoTable th,
-.listadoTable td {
+.listadoTable th, .listadoTable td {
   padding: 12px;
   text-align: left;
 }
@@ -49,44 +48,4 @@
 
 .acciones .eliminarButton:hover {
   background-color: #b13434;
-}
-/* PAGINADOR */
-.paginador {
-  margin: 1rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.paginador p {
-  margin: 0 2rem;
-}
-
-.paginador p span {
-  border: solid 1px #1A2A3A;
-  padding: 0px 8px;
-  border-radius: 6px;
-  background-color: #4CAF50;
-}
-
-.paginador button {
-  font-size: 1.4rem;
-  font-weight: 600;
-  border: solid 1px #1A2A3A;
-  padding: 0px 8px;
-  width: 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 1px 1px 5px;
-  transition: 0.3s;
-}
-
-.paginador button:hover {
-  background-color: #314560;
-}
-
-.paginador button:active {
-  box-shadow: none;
 }

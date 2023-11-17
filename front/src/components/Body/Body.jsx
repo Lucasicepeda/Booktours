@@ -1,6 +1,5 @@
 import './newBody.css';
 import React, { useState } from 'react';
-
 import Cards from '../Cards/Cards.jsx'
 import Categorias from '../Categorias/Categorias.jsx';
 
@@ -20,6 +19,7 @@ function Body() {
       <Categorias onCategoryClick={handleCategoryClick}/>
 
       {showCards && <Cards />}
+    
     </div >
   );
 };
