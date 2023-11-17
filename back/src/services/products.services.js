@@ -1,19 +1,37 @@
 import { productRepository } from "../repositories/index.repositories.js";
 import { ProductNotFound } from "../utils/exceptions.utils.js";
+import mongoose from "mongoose";
 
-const save = async (products) => {
+const save = async (products, imgName, imgUrl) => {
+
+    const getOne = await productRepository.getByTitle(products.title);
+    if (getOne) throw new ProductNotFound('Este producto ya existe');
+
     const { title, category, smalldescription, description, price } = products;
-
     if (!title || !category || !smalldescription || !description || !price) {
         throw new ProductNotFound('Datos Incompletos');
     };
+    const { benefits, ...newProducts } = products;
+    const array = products.benefits.split(',');
+    newProducts.benefits = [];
+    array.forEach((prod) => {
+        newProducts.benefits = array.map(prod => new mongoose.Types.ObjectId(prod));
+    })
+    newProducts.img = [];
 
-    const result = await productRepository.save(products);
+    imgName.forEach((img, index) => {
+        newProducts.img.push({
+            imgName: img.originalname,
+            imgUrl: imgUrl[index]
+        });
+    });
+
+    const result = await productRepository.save(newProducts);
     if (!result) throw new ProductNotFound('No se puede Guardar en la Base de Datos');
     return { status: 'succes', products };
 };
 
-let cachedProducts = null;  // Variable para almacenar los productos obtenidos la primera vez
+let cachedProducts = null;
 
 const getAll = async (limit, page, query, random) => {
     if (random === '1') {
@@ -26,7 +44,6 @@ const getAll = async (limit, page, query, random) => {
         const paginatedProducts = randomProducts.slice(startIdx, endIdx);
 
         cachedProducts = randomProducts;
-
         const products = {
             docs: paginatedProducts,
             totalDocs,
@@ -41,7 +58,6 @@ const getAll = async (limit, page, query, random) => {
             prevLink: +page > 1 ? +page - 1 : null,
             nextLink: endIdx < totalDocs ? +page + 1 : null,
         };
-
         return { status: 'success', products };
     };
 
@@ -51,7 +67,6 @@ const getAll = async (limit, page, query, random) => {
         const totalDocs = cachedProducts.length;
 
         const paginatedProducts = cachedProducts.slice(startIdx, endIdx);
-
         const products = {
             docs: paginatedProducts,
             totalDocs,
@@ -66,10 +81,8 @@ const getAll = async (limit, page, query, random) => {
             prevLink: +page > 1 ? +page - 1 : null,
             nextLink: endIdx < totalDocs ? +page + 1 : null,
         };
-
         return { status: 'success', products };
     };
-
     let queryObj = {};
     queryObj = query ? { category: { $regex: query, $options: "i" } } : {};
 
@@ -82,6 +95,5 @@ const getAll = async (limit, page, query, random) => {
 
     return { status: 'success', products };
 };
-
 
 export { save, getAll };

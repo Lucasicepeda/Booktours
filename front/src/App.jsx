@@ -41,7 +41,7 @@ function App() {
 					<Route path={routes.Galeria} element={<Galeria />} />
 					<Route path={routes.dataUser} element={<DataUser />}/>
 				</Routes>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</BrowserRouter>
 	)

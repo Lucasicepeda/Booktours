@@ -22,4 +22,9 @@ export default class ProductRepository {
         const result = await productManager.count();
         return result;
     };
+
+    getByTitle = async (title) => {
+        const result = await productManager.getByTitle(title);
+        return result;
+    };
 };

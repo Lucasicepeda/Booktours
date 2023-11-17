@@ -19,4 +19,8 @@ export default class Product {
     count = async () => {
         return await productModel.countDocuments();
     };
+
+    getByTitle = async (title) => {
+        return await productModel.findOne({ title: title });
+    };
 };

@@ -9,10 +9,19 @@ const productSchema = new mongoose.Schema({
     description: { type: String, required: true },
     price: { type: Number, required: true },
     category: { type: String, required: true },
-    imgName: [{ type: String }],
-    imgUrl: [{ type: String }]
+    img: [
+        {
+            imgName: { type: String },
+            imgUrl: { type: String }
+        }
+    ],
+    benefits: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'benefits' } 
+    ]
 });
 
 productSchema.plugin(mongoosePaginate);
+
+productSchema.pre('find', function () { this.populate('benefits.benefit') });
 
 export const productModel = mongoose.model(productCollection, productSchema);

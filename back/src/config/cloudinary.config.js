@@ -9,20 +9,22 @@ cloudinary.config({
 
 const uploadToCloudinary = (req, res, next) => {
     if (!req.files || req.files.length === 0) {
-        req.cloudinaryUrls = []; // Array para almacenar URLs de imágenes
+        req.cloudinaryUrls = [];
         return next();
-    }
+    };
 
     const uploadPromises = req.files.map(file => {
         return new Promise((resolve, reject) => {
-            cloudinary.uploader.upload_stream({ folder: 'photos' }, (error, result) => {
+            const stream = cloudinary.uploader.upload_stream({ folder: 'photos' }, (error, result) => {
                 if (error) {
                     console.error('Error al cargar la imagen a Cloudinary:', error);
                     reject(error);
                 } else {
                     resolve(result.secure_url);
                 }
-            }).end(file.buffer);
+            });
+
+            stream.end(file.buffer);
         });
     });
 
