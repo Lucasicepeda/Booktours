@@ -27,4 +27,9 @@ export default class ProductRepository {
         const result = await productManager.getByTitle(title);
         return result;
     };
+
+    search = async (search, limit, page) => {
+        const result = await productManager.search(search, limit, page);
+        return result;
+    };
 };

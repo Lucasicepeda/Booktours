@@ -18,4 +18,9 @@ export default class BenefiteRepository {
         const result = await benefitManager.getAll();
         return result;
     }
+
+    getById = async (id) => {
+        const result = await benefitManager.getById(id);
+        return result;
+    };
 };

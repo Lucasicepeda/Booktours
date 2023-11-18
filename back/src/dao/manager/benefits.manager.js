@@ -13,4 +13,8 @@ export default class Benefit {
     getAll = async () => {
         return await benefitModel.find().lean();
     };
+
+    getById = async (id) => {
+        return await benefitModel.find({_id: id}).lean();
+    };
 };

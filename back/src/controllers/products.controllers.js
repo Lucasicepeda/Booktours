@@ -9,9 +9,6 @@ const save = async (req, res) => {
         const result = await productService.save(product, imgName, imgUrl);
         if (result) return res.sendSuccess(result);
     } catch (error) {
-
-        console.log(error.message); // <<<<<<<<<<<<<<<<<<<<<<<<<<<< Borrar cuando funcione !!!!!!
-
         if (error instanceof ProductNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };
@@ -28,4 +25,18 @@ const getAll = async (req, res) => {
     };
 };
 
-export { save, getAll };
+const search = async (req, res) => {
+    const { search } = req.params;
+    try {
+        const result = await productService.search(search);
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+
+        console.log(error); //<<<<<<<<<<<<<<<<<<<<<<<<<<borrarra
+
+        if (error instanceof ProductNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+export { save, getAll, search };

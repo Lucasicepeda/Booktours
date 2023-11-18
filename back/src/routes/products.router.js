@@ -8,6 +8,6 @@ export default class ProductRouter extends Router {
     init() {
         this.post('/', ['ADMIN'], passportEnum.JWT, uploader, uploadToCloudinary, productController.save);
         this.get('/', ['PUBLIC'], passportEnum.NOTHING, productController.getAll);
+        this.get('/:search', ['PUBLIC'], passportEnum.NOTHING, productController.search);
     };
 };
-
