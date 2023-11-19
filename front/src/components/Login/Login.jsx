@@ -38,6 +38,8 @@ const Logins = () => {
 
     return (
         <div className="form">
+            
+            <h2>Iniciar sesión</h2>
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
                     <label>Email </label>

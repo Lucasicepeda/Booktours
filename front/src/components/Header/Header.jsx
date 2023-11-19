@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import './header.css';
 import { Link } from "react-router-dom";
@@ -39,7 +40,7 @@ function Header() {
         <a href="/"> {/* Establece la URL de tu página principal */}
           <img src='./src/assets/logo.png' alt='logo' />
         </a>
-        <span><Link to="/">Viví la experiencias inolvidables</Link></span>
+        <span><Link to="/">Viví experiencias inolvidables</Link></span>
       </div>
 
 
@@ -91,6 +92,6 @@ function Header() {
       </div>
     </header >
   );
-};
+}
 
 export default Header;

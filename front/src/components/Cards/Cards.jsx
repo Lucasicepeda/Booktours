@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import { getProducts } from "../../helpers/getProducts.js";
 import "./cards.css";
@@ -24,6 +25,15 @@ const Cards = () => {
     setProductos(product.products);
   };
 
+  const [favorites, setFavorites] = useState({});
+
+  const addFav = (productId) => {
+    setFavorites((prevFavorites) => ({
+      ...prevFavorites,
+      [productId]: !prevFavorites[productId],
+    }));
+  };
+
   return (
     <div>
       <div className="cards">
@@ -40,6 +50,14 @@ const Cards = () => {
                 <button>Reservar</button>
               </div>
               <img src={prod.url} alt={prod.title} />
+              <div>
+                <button
+                  onClick={() => addFav(prod._id)}
+                  className="favButton"
+                >
+                  {favorites[prod._id] ? '❤️' : '🤍'}
+                </button>
+              </div>
             </div>
           ))}
       </div>

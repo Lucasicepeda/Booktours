@@ -26,7 +26,7 @@ function Categorias({ onCategoryClick }) {
     <div className='categoriasContainer'>
 
       <div className='categorias'>
-        <h2>Categorias</h2>
+        <h2>Categorías</h2>
         <div className='categoryCards'>
           {categorie.map((categ) => (
             <div className='unidCardCategory' key={categ._id} onClick={() => handleCategory(categ.name)}>
