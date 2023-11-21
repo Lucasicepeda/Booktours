@@ -31,12 +31,23 @@ const search = async (req, res) => {
         const result = await productService.search(search);
         if (result) return res.sendSuccess(result);
     } catch (error) {
-
-        console.log(error); //<<<<<<<<<<<<<<<<<<<<<<<<<<borrarra
-
         if (error instanceof ProductNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };
 };
 
-export { save, getAll, search };
+const getById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await productService.getById(id);
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+
+        console.log(error.message); // <<<<<<<<<<<<<<<<<<<<< Borrar cuando todo esté bien.
+
+        if (error instanceof ProductNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };    
+};
+
+export { save, getAll, search, getById };

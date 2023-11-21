@@ -1,9 +1,9 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { routes } from './Routes/routes';
 import Header from './components/Header/Header'
 import Listado from './components/PanelAdmin/Listado'
 import Footer from './components/Footer/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { routes } from './Routes/routes';
 import Body from './components/Body/Body';
 import CrearProducto from './components/PanelAdmin/CrearProducto';
 import AdminPanel from './components/PanelAdmin/AdminPanel';
@@ -12,8 +12,9 @@ import Galeria from './components/GaleriaProducto/Galeria';
 import Registro from './components/Registro/Registro';
 import Login from './components/Login/Login';
 import DataUser from './components/DataUser/DataUser';
+import Bookings from './components/Bookings/Bookings';
 
-
+/* Test Gabo */
 
 function App() {
 	return (
@@ -40,8 +41,9 @@ function App() {
 					{/*Muestra imagenes de producto*/}
 					<Route path={routes.Galeria} element={<Galeria />} />
 					<Route path={routes.dataUser} element={<DataUser />}/>
+					<Route path={routes.bookings} element={<Bookings />}/>
 				</Routes>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</BrowserRouter>
 	)

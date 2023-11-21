@@ -1,5 +1,5 @@
 import { productRepository } from "../repositories/index.repositories.js";
-import { getBenefits } from '../utils/getbenefits.js';
+import { getBenefits, getBenefitsById } from '../utils/getbenefits.js';
 import { ProductNotFound } from "../utils/exceptions.utils.js";
 import mongoose from "mongoose";
 
@@ -104,4 +104,13 @@ const search = async (search) => {
     return result;
 };
 
-export { save, getAll, search };
+const getById = async (id) => {
+    const productDb = await productRepository.getById(id);
+    if(!productDb) throw new ProductNotFound('No se encuentra un producto con ese Id');
+
+    const product = {...productDb._doc, benefits: await getBenefitsById(productDb)};
+    
+    return { status: 'success', product };
+};
+
+export { save, getAll, search, getById };
