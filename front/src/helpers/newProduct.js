@@ -7,7 +7,6 @@ const newProduct = async (product) => {
         body: product,
         headers: {
             'Accept': 'application/json',
-            // 'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
         }
     });

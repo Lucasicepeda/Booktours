@@ -29,8 +29,8 @@ const Bookings = () => {
         date: [
             {
                 user: 'fabian',
-                startDate: '2023-11-23',
-                endDate: '2023-11-28',
+                startDate: '2023-12-23',
+                endDate: '2023-12-28',
             },
             {
                 user: 'fabian',
