@@ -6,7 +6,9 @@ import env from './config/dotEnv.config.js';
 import initializePassport from './config/passport.config.js';
 import mongoDB from './dao/mongo.js';
 
-import { userRouter, productRouter, categoryRouter, benefitRouter } from './routes/index.router.js';
+import {
+    userRouter, productRouter, categoryRouter, benefitRouter, bookingRouter
+} from './routes/index.router.js';
 
 const app = express();
 mongoDB();
@@ -22,5 +24,6 @@ app.use('/api/user', userRouter);
 app.use('/api/product', productRouter);
 app.use('/api/category', categoryRouter);
 app.use('/api/benefit', benefitRouter);
+app.use('/api/booking', bookingRouter);
 
 app.listen(env.port, () => console.log('Server conected'));

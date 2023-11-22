@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BuscadorCards = ({ info: productos }) => {
-    
+
     return (
         <div className='cards'>
             {(productos && productos.docs) && productos.docs.map((prod) => (
@@ -13,7 +14,9 @@ const BuscadorCards = ({ info: productos }) => {
                             <p>{prod.smalldescription}</p>
                             <p className='price'>{prod.price} U$D</p>
                         </div>
-                        <button>Reservar</button>
+                        <Link to={`/detail/${prod._id}`}>
+                            <button>Reservar</button>
+                        </Link>
                     </div>
                     <img src={prod.img[0].imgUrl} alt={prod.title} />
                 </div>

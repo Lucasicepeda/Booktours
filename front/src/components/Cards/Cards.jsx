@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts } from '../../helpers/getProducts.js';
 import './cards.css';
+import { Link } from 'react-router-dom';
 
 const Cards = () => {
     const [productos, setProductos] = useState([]);
@@ -35,7 +36,9 @@ const Cards = () => {
                                 <p>{prod.smalldescription}</p>
                                 <p className='price'>{prod.price} U$D</p>
                             </div>
-                            <button>Reservar</button>
+                            <Link to={`/detail/${prod._id}`}>
+                                <button>Reservar</button>
+                            </Link>
                         </div>
                         <img src={prod.img[0].imgUrl} alt={prod.title} />
                     </div>

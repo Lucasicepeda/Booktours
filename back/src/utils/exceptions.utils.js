@@ -25,3 +25,10 @@ export class BenefitNotFound extends Error {
         this.name = this.constructor.name;
     };
 };
+
+export class BookingNotFound extends Error {
+    constructor(message) {
+        super(message);
+        this.name = this.constructor.name;
+    };
+};

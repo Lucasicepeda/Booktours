@@ -174,4 +174,7 @@
     justify-items: center;
     margin: 0px
   } 
+  .gridServices{  
+    margin: 20px 100px;
+  }
 }

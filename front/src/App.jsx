@@ -13,6 +13,7 @@ import Registro from './components/Registro/Registro';
 import Login from './components/Login/Login';
 import DataUser from './components/DataUser/DataUser';
 import Bookings from './components/Bookings/Bookings';
+import DetailContainer from './components/DetailContainer/DetailContainer';
 
 /* Test Gabo */
 
@@ -38,12 +39,13 @@ function App() {
 					<Route path={routes.crearProducto} element={<CrearProducto />} />
 					{/*Página detalle productos*/}
 					<Route path={routes.detalleProducto} element={<DetalleProducto />} />
+					<Route path={routes.detail} element={<DetailContainer />} />
 					{/*Muestra imagenes de producto*/}
 					<Route path={routes.Galeria} element={<Galeria />} />
 					<Route path={routes.dataUser} element={<DataUser />}/>
 					<Route path={routes.bookings} element={<Bookings />}/>
 				</Routes>
-				{/* <Footer /> */}
+				{ <Footer /> }
 			</div>
 		</BrowserRouter>
 	)

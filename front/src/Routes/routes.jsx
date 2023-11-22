@@ -6,6 +6,7 @@ export const routes = {
   producto: '/administracion/productos',
   crearProducto: "/administracion/productos/crear",
   detalleProducto: "/detalleproducto",
+  detail: '/detail/:itemId',
   gallery: "/gallery",
   dataUser: '/dataUser',
   bookings: '/bookings'

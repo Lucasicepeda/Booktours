@@ -1,104 +1,84 @@
-import React, { useState } from "react";
-import data from "./images.json";
+import React, { useState, useEffect } from "react";
 import Modal from "./modal";
 import "./galeria-styles.css";
 
-function Galeria() {
-    const [clickedImg, setClickedImg] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(null);
-    const [visibleItems, setVisibleItems] = useState(5); // Número de elementos visibles
-    const [showMore, setShowMore] = useState(true); // Estado para controlar el botón
+function Galeria({ img }) {
+  const [images, setImages] = useState([]);
+  const [clickedImg, setClickedImg] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(5);
+  const [showMore, setShowMore] = useState(true);
 
-    const handleClick = (item, index) => {
-        setCurrentIndex(index);
-        setClickedImg(item.img);
-    };
+  useEffect(() => {
+    const imageData = img.map((prod) => ({ img: prod.imgUrl }));
+    setImages(imageData);
+  }, [img]);
 
-    const handleRotationRight = () => {
-        const totalLenght = data.data.length;
-        if (currentIndex + 1 >= totalLenght) {
-            setCurrentIndex(0);
-            const newUrl = data.data[0].img;
-            setClickedImg(newUrl);
-            return;
-        }
-        const newIndex = currentIndex + 1;
-        const newUrl = data.data.filter((item => {
-            return data.data.indexOf(item) === newIndex;
-        }));
-        const newItem = newUrl[0].img;
-        setClickedImg(newItem);
-        setCurrentIndex(newIndex);
-    };
+  const handleClick = (item, index) => {
+    setCurrentIndex(index);
+    setClickedImg(item.img);
+  };
 
-    const handleRotationLeft = () => {
-        const totalLength = data.data.length;
-        if (currentIndex === 0) {
-            setCurrentIndex(totalLength - 1);
-            const newUrl = data.data[totalLength - 1].img;
-            setClickedImg(newUrl);
-            return;
-        }
-        const newIndex = currentIndex - 1;
-        const newUrl = data.data.filter((item) => {
-            return data.data.indexOf(item) === newIndex;
-        });
-        const newItem = newUrl[0].img;
-        setClickedImg(newItem);
-        setCurrentIndex(newIndex);
-    };
+  const handleRotationRight = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-    const primerElemento = data.data[0];
-
-    const toggleShowMore = () => {
-        // Cambia el estado del botón y ajusta la cantidad de elementos visibles
-        if (showMore) {
-            setVisibleItems(data.data.length);
-        } else {
-            setVisibleItems(5); // Cambia a la cantidad inicial que desees
-        }
-        setShowMore(!showMore); // Cambia el estado del botón
-    };
-
-    return (
-        <div>
-            <div className="image-container">
-                <img
-                    src={primerElemento.img}
-                    onClick={() => handleClick(primerElemento, 0)}
-                />
-                <div className="imgs-side">
-                    {data.data.slice(0, visibleItems).map((item, index) => {
-                        if (index === 0) {
-                            return null; // Omitir el primer elemento
-                        }
-                        return (
-                            <div key={index} className="wrapper-images">
-                                <img
-                                    src={item.img}
-                                    onClick={() => handleClick(item, index)}
-                                />
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-            <div className="verMasBtn">
-                <div></div>
-                <button onClick={toggleShowMore}>
-                    {showMore ? "Ver Más" : "Ver Menos"}
-                </button>
-            </div>
-            {clickedImg && (
-                <Modal
-                    clickedImg={clickedImg}
-                    handleRotationRight={handleRotationRight}
-                    setClickedImg={setClickedImg}
-                    handleRotationLeft={handleRotationLeft}
-                />
-            )}
-        </div>
+  const handleRotationLeft = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
+  };
+
+  const toggleShowMore = () => {
+    if (showMore) {
+      setVisibleItems(images.length);
+    } else {
+      setVisibleItems(5);
+    }
+    setShowMore(!showMore);
+  };
+
+  return (
+    <div>
+      <div className="image-container">
+        {images.length > 0 && (
+          <img
+            src={images[currentIndex].img}
+            onClick={() => handleClick(images[currentIndex], currentIndex)}
+          />
+        )}
+        <div className="imgs-side">
+          {images.slice(0, visibleItems).map((item, index) => {
+            if (index === 0) {
+              return null;
+            }
+            return (
+              <div key={index} className="wrapper-images">
+                <img
+                  src={item.img}
+                  onClick={() => handleClick(item, index)}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="verMasBtn">
+        <div></div>
+        <button onClick={toggleShowMore}>
+          {showMore ? "Ver Más" : "Ver Menos"}
+        </button>
+      </div>
+      {clickedImg && (
+        <Modal
+          clickedImg={clickedImg}
+          handleRotationRight={handleRotationRight}
+          setClickedImg={setClickedImg}
+          handleRotationLeft={handleRotationLeft}
+        />
+      )}
+    </div>
+  );
 }
 
 export default Galeria;

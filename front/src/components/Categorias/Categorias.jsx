@@ -2,6 +2,7 @@ import './categorias.css';
 import { categories } from '../../helpers/getCategories.js';
 import { useEffect, useState } from 'react';
 import { getProducts } from '../../helpers/getProducts.js';
+import { Link } from 'react-router-dom';
 
 function Categorias({ setShowCards }) {
 
@@ -26,7 +27,7 @@ function Categorias({ setShowCards }) {
     <div className='categoriasContainer'>
 
       <div className='categorias'>
-        <h2>Categorías</h2>
+        <h2>Categorias</h2>
         <div className='categoryCards'>
           {categorie.map((categ) => (
             <div className='unidCardCategory' key={categ._id} onClick={() => handleCategory(categ.name)}>
@@ -47,7 +48,9 @@ function Categorias({ setShowCards }) {
                 <p>{prod.smalldescription}</p>
                 <p className='price'>{prod.price} U$D</p>
               </div>
-              <button>Reservar</button>
+              <Link to={`/detail/${prod._id}`}>
+                <button>Reservar</button>
+              </Link>
             </div>
             <img src={prod.img[0].imgUrl} alt={prod.img[0].imgName} />
           </div>

@@ -3,101 +3,90 @@
 } */
 
 .top-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 60px 60px;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 60px;
 }
 
 .top-container .product-title {
-  margin: 10px 0px;
+    margin: 10px 0px;
 }
 
-.product-title h1 {
-  display: flex;
-  padding: 0;
-  color: rgb(0, 0, 0);
-  align-items: flex-start;
-  font-size: 40px;
-  font-weight: 600;
+.product-title h1{
+    display: flex;
+    padding: 0;
+    color: rgb(0, 0, 0);
+    align-items: flex-start;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .back-home {
-  display: flex;
-  align-items: center;
-  color: #2e4b73;
-  font-size: 50px;
-  transition: background-color 0.3s, transform 0.3s; /* Transiciones para el efecto hover */
+    display: flex;
+    align-items: center;
+    color:#2e4b73;
+    font-size: 50px;
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para el efecto hover */
 }
 
 .back-home:hover {
-  /* Estilos en hover */
-  /* background-color: #ddd; Color de fondo al pasar el ratón sobre el título */
-  transform: scale(1.15); /* Aumentar el tamaño en hover */
+    /* Estilos en hover */
+    /* background-color: #ddd; Color de fondo al pasar el ratón sobre el título */
+    transform: scale(1.15); /* Aumentar el tamaño en hover */
 }
 
 /* Seccion Servicios Incluidos */
-.serviciosIncluidos h2 {
-  align-content: center;
-  margin: 40px 0px;
+.serviciosIncluidos h2{
+    align-content: center;
+    margin: 40px 0px;
 }
-.gridServices {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual ancho */
-  grid-template-rows: repeat(2, 1fr); /* 2 filas de igual altura */
-  gap: 15px;
-  margin: 20px 200px;
-  justify-items: stretch;
-  flex-direction: column;
-}
-
-.gridServices div {
-  display: flex;
-  gap: 20px;
-}
-.gridServices div h5 {
-  margin-left: 30px;
-  font-size: 14px;
+.gridServices{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual ancho */
+    grid-template-rows: repeat(2, 1fr);    /* 2 filas de igual altura */
+    gap: 15px;
+    margin: 20px 200px;
+    justify-items: stretch;
 }
 
-.icon-container {
-  width: 20px;
-  height: 20px;
+.gridServices div{
+    display: flex;
+    gap: 20px;
 }
-.description-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin: 0px 0px 40px 0px;
-  background-color: rgb(217, 217, 217);
-  padding: 35px 0px;
+.gridServices div h5{
+    margin-left: 30px;
+    font-size: 14px
 }
 
-.description-container h3 {
-  padding: 20px 60px;
-  font-weight: 200;
+.icon-container{
+    width: 20px;
+    height: 20px;
+}
+.description-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0px 0px 40px 0px;
+    background-color: rgb(217, 217, 217);
+    padding: 35px 0px;
 }
 
-.description-container button {
-  margin: 0px 40px;
-  padding: 10px 10px;
-  font-size: 20px;
-  width: 150px;
-  height: 30px;
-  border-radius: 15px;
-  background-color: #2e4b73;
-  color: white;
+.description-container h3{
+    padding: 20px 60px;
+    font-weight: 200;
 }
 
-@media (max-width: 768px) {
-  /* TABLET */
-  .gridServices {
-    margin: 20px 100px 40px;
-  }
+.description-container button{
+    margin: 0px 40px;
+    padding: 10px 10px;
+    font-size: 20px;
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #2e4b73;
+    color: white;
 }
 
-@media (max-width: 425px) {
-  /* MOVIL */
-  .gridServices {
-    grid-template-columns: repeat(1, 1fr);
-  }
+@media (max-width: 768px) { /* TABLET */
+    
 }

@@ -1,0 +1,14 @@
+.btnBooking {
+    padding: 10px 10px;
+    font-size: 20px;
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #2e4b73;
+    color: white;
+    transition: .3s;
+}
+
+.btnBooking:hover {
+    background-color: #1c4072;
+}
