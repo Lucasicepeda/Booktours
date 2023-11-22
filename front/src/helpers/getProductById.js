@@ -1,5 +1,6 @@
-const getBenefit = async () => {
-    const response = await fetch('http://localhost:8080/api/benefit', {
+const getProductById = async (id) => {
+
+    const response = await fetch(`http://localhost:8080/api/product/id/${id}`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -11,4 +12,4 @@ const getBenefit = async () => {
     return content.data;
 };
 
-export { getBenefit };
+export { getProductById };

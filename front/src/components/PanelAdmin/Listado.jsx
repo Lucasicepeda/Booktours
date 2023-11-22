@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getProducts } from '../../helpers/getProducts.js';
 import "./Listado.css";
-import Paginador from "../Paginador/Paginador.jsx";
-
+import { getProducts } from '../../helpers/getProducts.js';
 
 function Listado() {
   const [productos, setProductos] = useState([]);
@@ -54,11 +52,12 @@ function Listado() {
           ) : null}
         </tbody>
       </table>
-      <Paginador
-        productos={productos}
-        handlePrevPage={handlePrevPage}
-        handleNextPage={handleNextPage}
-      />
+
+      <div className='paginador'>
+        {(productos && productos.hasPrevPage === true) && <button onClick={handlePrevPage}>{productos.prevPage}</button>}
+        {productos.page && <p> <span>{productos.page}</span></p>}
+        {(productos && productos.hasNextPage === true) && <button onClick={handleNextPage}>{productos.nextPage}</button>}
+      </div>
     </div>
   );
 };

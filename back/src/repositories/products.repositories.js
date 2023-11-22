@@ -32,4 +32,9 @@ export default class ProductRepository {
         const result = await productManager.search(search, limit, page);
         return result;
     };
+
+    getById = async (id) => {
+        const result = await productManager.getById(id);
+        return result;
+    };
 };

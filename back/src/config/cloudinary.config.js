@@ -42,8 +42,7 @@ const deleteImgs = async (publicIds) => {
     for (const publicId of publicIds) {
         const result = await cloudinary.uploader.destroy(publicId);
         deletionResults.push(result);
-    }
-
+    };
     return deletionResults;
 };
 
@@ -58,7 +57,6 @@ const getPublicIds = (urls) => {
             throw new Error('URL de Cloudinary no válida');
         }
     });
-
     return publicIds;
 };
 

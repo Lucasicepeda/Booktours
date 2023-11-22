@@ -11,4 +11,13 @@ const getBenefits = async (products) => {
     return productsWithDetails;
 };
 
-export { getBenefits }
+const getBenefitsById = async (product) => {
+   
+    const result = await Promise.all(product.benefits.map(async (benefitId) => {
+        return (await benefiteRepository.getById(benefitId));
+    }));
+    const benefitFlat = result.flat(); 
+    return benefitFlat;
+};
+
+export { getBenefits, getBenefitsById };

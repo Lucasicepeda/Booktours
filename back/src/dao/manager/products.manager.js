@@ -33,4 +33,8 @@ export default class Product {
         };
         return await productModel.paginate(query, { limit, page, lean: true, populate: 'benefits.benefit' });
     };
+
+    getById = async (id) => {
+        return await productModel.findById(id);
+    };
 };

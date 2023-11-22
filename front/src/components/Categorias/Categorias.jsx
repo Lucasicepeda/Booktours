@@ -3,7 +3,7 @@ import { categories } from '../../helpers/getCategories.js';
 import { useEffect, useState } from 'react';
 import { getProducts } from '../../helpers/getProducts.js';
 
-function Categorias({ onCategoryClick }) {
+function Categorias({ setShowCards }) {
 
   const [categorie, setCategoire] = useState([]);
   const [productos, setProductos] = useState([]);
@@ -17,7 +17,7 @@ function Categorias({ onCategoryClick }) {
   }, []);
 
   const handleCategory = async (name) => {
-    onCategoryClick();
+    setShowCards();
     const product = await getProducts({ query: name });
     setProductos(product.products);
   };
@@ -44,15 +44,15 @@ function Categorias({ onCategoryClick }) {
               <h4>{prod.title}</h4>
               <div className='cardInterText'>
                 <p className='parr'>{prod.category}</p>
+                <p>{prod.smalldescription}</p>
                 <p className='price'>{prod.price} U$D</p>
               </div>
               <button>Reservar</button>
             </div>
-            <img src={prod.url} alt={prod.title} />
+            <img src={prod.img[0].imgUrl} alt={prod.img[0].imgName} />
           </div>
         ))}
       </div>
-      
     </div>
   );
 };

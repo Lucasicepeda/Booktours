@@ -1,27 +1,29 @@
 import './newBody.css';
 import React, { useState } from 'react';
-import Cards from '../Cards/Cards.jsx'
+import Buscador from '../Buscador/Buscador.jsx';
+import Cards from '../Cards/Cards.jsx';
 import Categorias from '../Categorias/Categorias.jsx';
+import BuscadorCards from '../BuscadorCards/BuscadorCards.jsx';
 
 function Body() {
-  const [showCards, setShowCrads] = useState(true);
+  const [showCards, setShowCards] = useState(true);
+  const [searchInfo, setSearchInfo] = useState(null);
 
-  const handleCategoryClick = () => setShowCrads(false);
+  const handleSearchInfo = (info) => {
+    setSearchInfo(info);
+    setShowCards(!info);
+  };
 
   return (
-    <div className='divBody' >
-
+    <div className='divBody'>
       <div className="first-part">
-        <input type="text" placeholder="Buscar por Destino, Actividad o Interés" />
-        <button className="search-button">BUSCAR</button>
+        <Buscador setShowCards={setShowCards} onSearchInfo={handleSearchInfo} />
       </div>
-
-      <Categorias onCategoryClick={handleCategoryClick}/>
-
-      {showCards && <Cards />}
-    
-    </div >
+      <Categorias setShowCards={setShowCards} />
+      {/* {showCards && <Cards />} */}
+      {showCards ? <Cards /> : <BuscadorCards info={searchInfo} />}
+    </div>
   );
-};
+}
 
 export default Body;
