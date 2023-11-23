@@ -79,8 +79,11 @@ const Bookings = ({ idProduct }) => {
 
     return (
         <div className="bookings">
-            <h2>Reservas</h2>
-            <div>
+            <div className='calendars'>
+                <h2>Reservas</h2>
+                {/* <span className="dismiss" onClick={handleClick}>
+                    x
+                </span> */}
                 <DatePicker
                     selected={startDate}
                     onChange={handleStartDateChange}
@@ -103,8 +106,8 @@ const Bookings = ({ idProduct }) => {
                     placeholderText="Fecha de fin"
                     locale={es}
                 />
+                <button className='btnBooking' onClick={handleSaveData}>Reservar</button>
             </div>
-            <button className='btnBooking' onClick={handleSaveData}>Reservar</button>
         </div>
     );
 };

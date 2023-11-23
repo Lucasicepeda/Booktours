@@ -1,5 +1,4 @@
-import ReactDOM from 'react-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './DetalleProducto.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';

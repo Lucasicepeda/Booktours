@@ -20,15 +20,17 @@ function Galeria({ img }) {
   };
 
   const handleRotationRight = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    const newIndex = (currentIndex + 1) % images.length;
+    setClickedImg(images[newIndex].img);
+    setCurrentIndex(newIndex);
   };
 
   const handleRotationLeft = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    setClickedImg(images[newIndex].img);
+    setCurrentIndex(newIndex);
   };
-
+  
   const toggleShowMore = () => {
     if (showMore) {
       setVisibleItems(images.length);
@@ -43,7 +45,7 @@ function Galeria({ img }) {
       <div className="image-container">
         {images.length > 0 && (
           <img
-            src={images[currentIndex].img}
+            src={images[0].img}
             onClick={() => handleClick(images[currentIndex], currentIndex)}
           />
         )}
@@ -81,4 +83,4 @@ function Galeria({ img }) {
   );
 }
 
-export default Galeria;
+  export default Galeria;
