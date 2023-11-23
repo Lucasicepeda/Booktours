@@ -34,8 +34,10 @@ const DetalleProducto = ({ item }) => {
                     <button onClick={handleVewBooking} className='reserva-btn'> Reserva</button>
                 </div>
             </div>
+            <div className='reservas'>
 
-            {vewBokking === true && <BooKings idProduct={item._id}/>}
+                {vewBokking === true && <BooKings idProduct={item._id} />}
+            </div>
 
             {<Galeria item={item._id} img={item.img} />}
 

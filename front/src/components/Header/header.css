@@ -140,12 +140,25 @@ a {
 @media (max-width: 425px) {
   header {
     height:auto;
+    display: flex;
+    /* align-items: space-around; */
+    /*  flex-direction: column; */
   }
   .divNav {
     position: relative;
     /* flex-direction: column; */
   }
 
+  .divNav {
+    display: flex;
+  }
+  .divNav span {
+    display: none;
+  }
+
+  .divAvatar {
+    align-items: flex-end;
+  }
   .divButtons {
     display: none;
   }
@@ -177,6 +190,7 @@ a {
     background-color: #243C58;
     bottom: -50px;
     transition: .3s;
+    left: 0.0000001px;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
 

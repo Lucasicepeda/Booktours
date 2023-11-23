@@ -21,6 +21,10 @@
     font-weight: 600;
     text-transform: capitalize;
 }
+.reservas{
+    display: flex;
+    justify-content: center;
+}
 
 .back-home {
     display: flex;

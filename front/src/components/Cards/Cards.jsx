@@ -33,12 +33,14 @@ const Cards = () => {
                             <h4>{prod.title}</h4>
                             <div className='cardInterText'>
                                 <p className='parr'>{prod.category}</p>
-                                <p>{prod.smalldescription}</p>
-                                <p className='price'>{prod.price} U$D</p>
+                                <p className='smallDesc'>{prod.smalldescription}</p>
                             </div>
-                            <Link to={`/detail/${prod._id}`}>
-                                <button>Reservar</button>
-                            </Link>
+                            <div className="priceYBtn">
+                                <p className='price'>{prod.price} U$D</p>
+                                <Link to={`/detail/${prod._id}`}>
+                                    <button>Reservar</button>
+                                </Link>
+                            </div>
                         </div>
                         <img src={prod.img[0].imgUrl} alt={prod.title} />
                     </div>
@@ -46,7 +48,13 @@ const Cards = () => {
             </div>
             <div className='paginador'>
                 {(productos && productos.hasPrevPage === true) && <button onClick={handlePrevPage}>{productos.prevPage}</button>}
-                {productos.page && <p> <span>{productos.page}</span></p>}
+                {/* {productos.page && <p> <span>{productos.page}</span></p>} */}
+                {productos.page && (
+                    <p>
+                        {" "}
+                        <div className="select-page"><span>{productos.page}</span></div>
+                    </p>
+                )}
                 {(productos && productos.hasNextPage === true) && <button onClick={handleNextPage}>{productos.nextPage}</button>}
             </div>
         </div>
