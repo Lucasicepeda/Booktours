@@ -86,7 +86,22 @@
 
 /* boton 2E4B73 */
 /* Letras 3E4439 */
-
+.favButton {
+    width: 50px;
+    height: 30px;
+    border-radius: 6px;
+    margin: 15px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 600;
+    background-color: #2E4B73;
+    color: white;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 15px;
+   
+}
 @media screen and (max-width:768px) {
     .cardDiv {
         width: 80%;

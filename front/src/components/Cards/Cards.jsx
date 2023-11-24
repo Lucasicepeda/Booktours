@@ -23,7 +23,14 @@ const Cards = () => {
         const product = await getProducts({ page: productos.prevPage, random: 2 });
         setProductos(product.products);
     };
+    const [favorites, setFavorites] = useState({});
 
+    const addFav = (productId) => {
+      setFavorites((prevFavorites) => ({
+        ...prevFavorites,
+        [productId]: !prevFavorites[productId],
+      }));
+    };
     return (
         <div>
             <div className='cards'>
@@ -43,9 +50,18 @@ const Cards = () => {
                             </div>
                         </div>
                         <img src={prod.img[0].imgUrl} alt={prod.title} />
+                        <div>
+                <button
+                  onClick={() => addFav(prod._id)}
+                  className="favButton"
+                >
+                  {favorites[prod._id] ? '❤️' : '🤍'}
+                </button>
+              </div>
                     </div>
                 ))}
             </div>
+        
             <div className='paginador'>
                 {(productos && productos.hasPrevPage === true) && <button onClick={handlePrevPage}>{productos.prevPage}</button>}
                 {/* {productos.page && <p> <span>{productos.page}</span></p>} */}
