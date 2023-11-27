@@ -48,4 +48,21 @@ const updateUser = async (userId, user) => {
     return { status: 'success', payload: result };
 };
 
-export { register, login, getByEmail, updateUser };
+const userRole = async (uId, user) => {
+    const resultDb = await userRepository.getById(uId);
+    if (!resultDb) throw new UserNotFound('No se encuentra al usuario seleccionado');
+    if(user.name === resultDb.name) throw new UserNotFound('No se puede eliminar a usted mismo');
+
+    const newRole = resultDb.role === 'user' ? 'admin' : 'user';
+    const role = await userRepository.userRole(resultDb._id, newRole);
+    if(!role) throw new UserNotFound('No se puede modificar el rol del usuario');
+    return { status: 'success', role };
+};
+
+const getAll = async () => {
+    const result = await userRepository.getAll();
+    if (!result) throw new UserNotFound('No se puede acceder a la base de datos de Usuarios');
+    return { status: 'success', result };
+};
+
+export { register, login, getByEmail, updateUser, userRole, getAll };

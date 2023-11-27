@@ -16,9 +16,6 @@ const getAll = async (req, res) => {
         const result = await categoryService.getAll();
         if (result) return res.sendSuccess(result);
     } catch (error) {
-
-        console.log(error); //>>>>>>>>>>>>>>>>>>>>>>>>>> Borrarrarararara
-
         if (error instanceof CategoryNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };

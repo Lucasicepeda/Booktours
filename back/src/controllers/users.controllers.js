@@ -41,6 +41,28 @@ const updateUser = async (req, res) => {
         if (error instanceof UserNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };
-}
+};
 
-export { register, login, getByEmail, updateUser };
+const userRole = async (req, res) => {
+    const { uId } = req.params;
+    const { user } = req.user;
+    try {
+        const result = await userService.userRole(uId, user);
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+        if (error instanceof UserNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+const getAll = async (req, res) => {
+    try {
+        const result = await userService.getAll();
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+        if (error instanceof UserNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+export { register, login, getByEmail, updateUser, userRole, getAll };

@@ -9,5 +9,6 @@ export const routes = {
   detail: '/detail/:itemId',
   gallery: "/gallery",
   dataUser: '/dataUser',
-  bookings: '/bookings'
+  bookings: '/bookings',
+  listUser: '/ListUsers'
 };

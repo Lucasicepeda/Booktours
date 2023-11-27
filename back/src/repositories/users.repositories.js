@@ -20,4 +20,19 @@ export default class UserRepository {
         const result = await userManager.updateUser(id, user);
         return result;
     };
+
+    getAll = async () => {
+        const result = await userManager.getAll();
+        return result;
+    };
+
+    getById = async (uId) => {
+        const result = await userManager.getById(uId);
+        return result;
+    };
+
+    userRole = async (id, role) => {
+        const result = await userManager.userRole(id, role);
+        return result;
+    };
 };

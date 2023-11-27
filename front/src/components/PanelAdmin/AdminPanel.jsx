@@ -19,6 +19,10 @@ function AdmiPanel() {
           <Link to="/administracion/productos">
             <button className="action-button">Listado de productos</button>
           </Link>
+          
+          <Link to="/ListUsers">
+            <button className="action-button">Listado de usuarios</button>
+          </Link>
 
           <Link to="/administracion/productos">
             <button className="action-button">Eliminar productos</button>

@@ -5,7 +5,7 @@ const save = async (booking, user) => {
 
     const { startDate, endDate } = booking;
     if (startDate === 'Invalid date' || endDate === 'Invalid date') {
-        throw new BookingNotFound('Una de las fechas no ha sido completada');
+        throw new BookingNotFound('Uno de los campos no ha sido completado');
     };
 
     const product = await bookingRepository.getProductById(booking.idProduct);
@@ -21,7 +21,7 @@ const save = async (booking, user) => {
             ]
         };
         const result = await bookingRepository.save(newBooking);
-        if(!result) throw new BookingNotFound('No se puede agregar una nueva reserva');
+        if (!result) throw new BookingNotFound('No se puede agregar una nueva reserva');
         return { status: 'succes', result };
     };
     product.date.push({
@@ -30,7 +30,7 @@ const save = async (booking, user) => {
         endDate: booking.endDate
     });
     const result = await bookingRepository.updateById(product);
-    if(!result) throw new BookingNotFound('No se puede agregar una nueva reserva');
+    if (!result) throw new BookingNotFound('No se puede agregar una nueva reserva');
     return { status: 'success', result };
 };
 

@@ -18,9 +18,6 @@ const getProductById = async (req, res) => {
         const result = await bookingService.getProductById(idProduct);
         if (result) return res.sendSuccess(result);
     } catch (error) {
-
-        console.log(error.message); // >>>>>>>>>>>>>>>>>>>> Borrar <<<<<<<<<<<<<<<<<
-
         if (error instanceof BookingNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };

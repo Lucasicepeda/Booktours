@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import DataUser from './components/DataUser/DataUser';
 import Bookings from './components/Bookings/Bookings';
 import DetailContainer from './components/DetailContainer/DetailContainer';
+import ListUsers from './components/PanelAdmin/ListUsers/ListUsers';
 
 /* Test Gabo */
 
@@ -44,6 +45,7 @@ function App() {
 					<Route path={routes.Galeria} element={<Galeria />} />
 					<Route path={routes.dataUser} element={<DataUser />}/>
 					<Route path={routes.bookings} element={<Bookings />}/>
+					<Route path={routes.listUser} element={<ListUsers />}/>
 				</Routes>
 				{ <Footer /> }
 			</div>
