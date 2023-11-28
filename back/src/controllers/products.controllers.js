@@ -44,7 +44,34 @@ const getById = async (req, res) => {
     } catch (error) {
         if (error instanceof ProductNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
-    };    
+    };
 };
 
-export { save, getAll, search, getById };
+const deleteById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await productService.deleteById(id);
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+        if (error instanceof ProductNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+const uploader = async (req, res) => {
+    const product = req.body;
+    const imgName = req.files;
+    const imgUrl = req.cloudinaryUrls;
+    try {
+        const result = await productService.uploader(product, imgName, imgUrl);
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+
+        console.log(error.message); // Borrar errores <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        if (error instanceof ProductNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+export { save, getAll, search, getById, deleteById, uploader };

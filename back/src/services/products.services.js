@@ -1,6 +1,7 @@
 import { productRepository } from "../repositories/index.repositories.js";
 import { getBenefits, getBenefitsById } from '../utils/getbenefits.js';
 import { ProductNotFound } from "../utils/exceptions.utils.js";
+import { getPublicIds, deleteImgs } from '../config/cloudinary.config.js';
 import mongoose from "mongoose";
 
 const save = async (products, imgName, imgUrl) => {
@@ -100,17 +101,57 @@ const search = async (search) => {
     const limit = 10;
     const page = 1;
     const result = await productRepository.search(search, limit, page);
-    if(!result) throw new ProductNotFound('No se encuentra un producto con ese nombre');
+    if (!result) throw new ProductNotFound('No se encuentra un producto con ese nombre');
     return result;
 };
 
 const getById = async (id) => {
     const productDb = await productRepository.getById(id);
-    if(!productDb) throw new ProductNotFound('No se encuentra un producto con ese Id');
+    if (!productDb) throw new ProductNotFound('No se encuentra un producto con ese Id');
 
-    const product = {...productDb._doc, benefits: await getBenefitsById(productDb)};
-    
+    const product = { ...productDb._doc, benefits: await getBenefitsById(productDb) };
     return { status: 'success', product };
 };
 
-export { save, getAll, search, getById };
+const deleteById = async (id) => {
+    const productDb = await productRepository.getById(id);
+    if (!productDb) throw new ProductNotFound('No se encuentra un producto con ese Id');
+
+    const urls = [];
+    productDb.img.forEach((prod) => urls.push(prod.imgUrl));
+    const publicId = await getPublicIds(urls);
+    await deleteImgs(publicId);
+
+    const result = await productRepository.deleteById(id);
+    return { status: 'success', result };
+};
+
+const uploader = async (products, imgName, imgUrl) => {
+    const getOne = await productRepository.getById(products.id);
+    if (!getOne) throw new ProductNotFound('Este producto no existe');
+
+    const { title, category, smalldescription, description, price } = products;
+    if (!title || !category || !smalldescription || !description || !price) {
+        throw new ProductNotFound('Datos Incompletos');
+    };
+    const { benefits, ...newProducts } = products;
+
+    const array = products.benefits.split(',');
+    newProducts.benefits = [];
+    newProducts.benefits = array.map(prod => new mongoose.Types.ObjectId(prod));
+
+    newProducts.img = [];
+    imgName.forEach((img, index) => {
+        newProducts.img.push({
+            imgName: img.originalname,
+            imgUrl: imgUrl[index]
+        });
+    });
+    getOne.img.forEach((prod) => newProducts.img.push(prod));
+
+    const result = await productRepository.uploader(newProducts.id, newProducts);
+    if (!result) throw new ProductNotFound('No se puede actualizar en la Base de Datos');
+    return { status: 'success', products };
+};
+
+export { save, getAll, search, getById, deleteById, uploader };

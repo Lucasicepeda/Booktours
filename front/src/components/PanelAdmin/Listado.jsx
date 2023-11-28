@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import "./Listado.css";
 import { getProducts } from '../../helpers/getProducts.js';
+import { deleteProduct } from '../../helpers/deleteProduct.js';
+import Swall from 'sweetalert2';
+import { Link } from "react-router-dom";
 
 function Listado() {
   const [productos, setProductos] = useState([]);
@@ -14,13 +17,41 @@ function Listado() {
   }, []);
 
   const handleNextPage = async () => {
-    const product = await getProducts({page: productos.nextPage});
+    const product = await getProducts({ page: productos.nextPage });
     setProductos(product.products);
   };
-  
+
   const handlePrevPage = async () => {
-    const product = await getProducts({page: productos.prevPage});
+    const product = await getProducts({ page: productos.prevPage });
     setProductos(product.products);
+  };
+
+  const eliminarProducto = async (id) => {
+    const data = await deleteProduct(id);
+
+    if (data.error) {
+      Swall.fire({
+        text: data.error,
+        toast: true,
+        position: "top-right",
+        showConfirmButton: false
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    };
+
+    if (data.status = 'success') {
+      Swall.fire({
+        text: `El producto se a eliminado correctamente`,
+        toast: true,
+        position: "top-right",
+        showConfirmButton: false
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    };
   };
 
   return (
@@ -44,7 +75,7 @@ function Listado() {
                 <td>{prod.price}</td>
                 <td>{prod.category}</td>
                 <td className="acciones">
-                  <button className="editarButton">Editar</button>
+                  <Link to={`/updateproduct/${prod.id}`}><button className="editarButton">Editar</button></Link>
                   <button className="eliminarButton" onClick={() => eliminarProducto(prod.id)}>Eliminar</button>
                 </td>
               </tr>

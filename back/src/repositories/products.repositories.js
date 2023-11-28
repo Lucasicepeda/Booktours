@@ -37,4 +37,14 @@ export default class ProductRepository {
         const result = await productManager.getById(id);
         return result;
     };
+
+    deleteById = async (id) => {
+        const result = await productManager.deleteById(id);
+        return result;
+    };
+
+    uploader = async (id, product) => {
+        const result = await productManager.uploader(id, product);
+        return result;
+    };
 };

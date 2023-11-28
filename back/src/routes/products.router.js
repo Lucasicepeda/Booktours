@@ -10,5 +10,7 @@ export default class ProductRouter extends Router {
         this.get('/', ['PUBLIC'], passportEnum.NOTHING, productController.getAll);
         this.get('/:search', ['PUBLIC'], passportEnum.NOTHING, productController.search);
         this.get('/id/:id', ['PUBLIC'], passportEnum.NOTHING, productController.getById);
+        this.delete('/:id', ['ADMIN'], passportEnum.JWT, productController.deleteById);
+        this.put('/', ['ADMIN'], passportEnum.JWT, uploader, uploadToCloudinary, productController.uploader);
     };
 };

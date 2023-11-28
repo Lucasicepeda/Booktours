@@ -37,4 +37,12 @@ export default class Product {
     getById = async (id) => {
         return await productModel.findById(id);
     };
+
+    deleteById = async (id) => {
+        return await productModel.findByIdAndDelete({ _id: id });
+    };
+
+    uploader = async (id, product) => {
+        return await productModel.findByIdAndUpdate({ _id: id }, product, { new: true }).lean();
+    };
 };
