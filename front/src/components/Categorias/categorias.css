@@ -20,10 +20,9 @@
 .unidCardCategory {
     min-width: 70px;
     border: 3px solid #243C58;
-    border-radius: 6px;
+    border-radius: 15px;
     padding: 6px;
     overflow: hidden;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +36,6 @@
     color: white;
     width: 110%;
     height: 110%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,4 +49,15 @@
 
 .unidCardCategory:hover .textCardCat {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@media (max-width: 425px) { /* MOVIL */
+    .categoriasContainer {
+        /* display: flex;
+        justify-content: center; */
+        width: 100%;
+    }
+    .categoryCards{
+        gap: 25px;
+    }
 }

@@ -19,3 +19,9 @@ body {
 	height: 160px;
 	width: 100%;
 }
+
+@media (max-width: 425px){
+	.place {
+		height: 120px;
+	}
+}

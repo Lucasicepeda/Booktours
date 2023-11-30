@@ -20,7 +20,6 @@
 .cardText {
     width: 50%;
     padding-left: 15px;
-    /* position: absolute; */
 }
 
 .cardText h4 {
@@ -37,7 +36,6 @@
 
 .price {
     font-weight: 600;
-    /* margin-top: 1rem; */
 }
 
 .parr {
@@ -84,24 +82,25 @@
     background-color: #6d6868;
 }
 
-/* boton 2E4B73 */
-/* Letras 3E4439 */
+.favBtnDiv{
+    position: relative;
+    width: 0;
+    right: 80px;
+}
+
 .favButton {
     width: 50px;
     height: 30px;
     border-radius: 6px;
-    margin: 15px;
     cursor: pointer;
     transition: .3s;
     font-weight: 600;
     background-color: #2E4B73;
     color: white;
-    top: 0;
-    right: 0;
     margin: 10px;
     font-size: 15px;
-   
 }
+
 @media screen and (max-width:768px) {
     .cardDiv {
         width: 80%;
@@ -110,18 +109,34 @@
         flex-direction: column-reverse;
     }
     .priceYBtn {
-        top: 5px;
+        top: 15px;
+        margin-right: 20px;
+        flex-direction: column;
+
     }
     .cardText {
+        display: flex;
+        padding-left: 0px;
+        justify-content: space-between;
         width: 100%;
-        padding-left: 15px
+        margin: 10px 0px 15px 0px;
+    }
+    .titleYCat{
+        margin-left: 20px;
     }
     .cardDiv img {
         width: 100%;
         object-fit: fill;
         border-radius: 15px 15px 0px 0px;
     }
-    
+    .favBtnDiv{
+        display: flex;
+        flex-direction: row-reverse;
+        width: auto;
+        top: 5px;
+        right: 10px;
+        height: 0px;
+    }
 }
 
 /* PAGINADOR */

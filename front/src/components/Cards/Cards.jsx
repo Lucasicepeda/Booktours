@@ -24,12 +24,11 @@ const Cards = () => {
         setProductos(product.products);
     };
     const [favorites, setFavorites] = useState({});
-
     const addFav = (productId) => {
-      setFavorites((prevFavorites) => ({
-        ...prevFavorites,
-        [productId]: !prevFavorites[productId],
-      }));
+        setFavorites((prevFavorites) => ({
+            ...prevFavorites,
+            [productId]: !prevFavorites[productId],
+        }));
     };
     return (
         <div>
@@ -37,10 +36,12 @@ const Cards = () => {
                 {(productos && productos.docs) && productos.docs.map((prod) => (
                     <div key={prod._id} className='cardDiv'>
                         <div className='cardText'>
-                            <h4>{prod.title}</h4>
-                            <div className='cardInterText'>
-                                <p className='parr'>{prod.category}</p>
-                                <p className='smallDesc'>{prod.smalldescription}</p>
+                            <div className='titleYCat'>
+                                <h4>{prod.title}</h4>
+                                <div className='cardInterText'>
+                                    <p className='parr'>{prod.category}</p>
+                                    <p className='smallDesc'>{prod.smalldescription}</p>
+                                </div>
                             </div>
                             <div className="priceYBtn">
                                 <p className='price'>{prod.price} U$D</p>
@@ -50,18 +51,18 @@ const Cards = () => {
                             </div>
                         </div>
                         <img src={prod.img[0].imgUrl} alt={prod.title} />
-                        <div>
-                <button
-                  onClick={() => addFav(prod._id)}
-                  className="favButton"
-                >
-                  {favorites[prod._id] ? '❤️' : '🤍'}
-                </button>
-              </div>
+                        <div className='favBtnDiv'>
+                            <button
+                                onClick={() => addFav(prod._id)}
+                                className="favButton"
+                            >
+                                {favorites[prod._id] ? '❤️' : '🤍'}
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
-        
+
             <div className='paginador'>
                 {(productos && productos.hasPrevPage === true) && <button onClick={handlePrevPage}>{productos.prevPage}</button>}
                 {/* {productos.page && <p> <span>{productos.page}</span></p>} */}

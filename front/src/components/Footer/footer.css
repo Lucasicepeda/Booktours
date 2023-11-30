@@ -79,4 +79,7 @@
       flex-direction: column;
       align-items: center;
     }
+  .divNav img {
+    width: 120px;
+  }
 }
