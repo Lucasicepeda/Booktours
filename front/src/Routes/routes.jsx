@@ -11,5 +11,6 @@ export const routes = {
   dataUser: '/dataUser',
   bookings: '/bookings',
   listUser: '/ListUsers',
-  updateProduct: '/updateproduct/:id'
+  updateProduct: '/updateproduct/:id',
+  BookingConfirm: '/BookingConfirm'
 };

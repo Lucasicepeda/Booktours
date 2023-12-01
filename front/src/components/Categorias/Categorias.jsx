@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 function Categorias({ setShowCards }) {
 
-  const [categorie, setCategoire] = useState([]);
+  const [category, setCategory] = useState([]);
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
     const catgorias = async () => {
-      const cat = await categories();
-      setCategoire(cat.result);
+      const cat = await category();
+      setCategory(cat.result);
     };
     catgorias();
   }, []);
@@ -21,6 +21,14 @@ function Categorias({ setShowCards }) {
     setShowCards();
     const product = await getProducts({ query: name });
     setProductos(product.products);
+  };
+
+  const [favorites, setFavorites] = useState({});
+  const addFav = (productId) => {
+      setFavorites((prevFavorites) => ({
+          ...prevFavorites,
+          [productId]: !prevFavorites[productId],
+      }));
   };
 
   return (
@@ -39,23 +47,35 @@ function Categorias({ setShowCards }) {
       </div>
 
       <div className='cards'>
-        {(productos && productos.docs) && productos.docs.map((prod) => (
-          <div key={prod._id} className='cardDiv'>
-            <div className='cardText'>
-              <h4>{prod.title}</h4>
-              <div className='cardInterText'>
-                <p className='parr'>{prod.category}</p>
-                <p>{prod.smalldescription}</p>
-                <p className='price'>{prod.price} U$D</p>
-              </div>
-              <Link to={`/detail/${prod._id}`}>
-                <button>Reservar</button>
-              </Link>
-            </div>
-            <img src={prod.img[0].imgUrl} alt={prod.img[0].imgName} />
-          </div>
-        ))}
-      </div>
+            {(productos && productos.docs) && productos.docs.map((prod) => (
+                <div key={prod._id} className='cardDiv'>
+                    <div className='cardText'>
+                        <div className='titleYCat'>
+                            <h4>{prod.title}</h4>
+                            <div className='cardInterText'>
+                                <p className='parr'>{prod.category}</p>
+                                <p className='smallDesc'>{prod.smalldescription}</p>
+                            </div>
+                        </div>
+                        <div className="priceYBtn">
+                            <p className='price'>{prod.price} U$D</p>
+                            <Link to={`/detail/${prod._id}`}>
+                                <button>Reservar</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <img src={prod.img[0].imgUrl} alt={prod.title} />
+                    <div className='favBtnDiv'>
+                        <button
+                            onClick={() => addFav(prod._id)}
+                            className="favButton"
+                        >
+                            {favorites[prod._id] ? '❤️' : '🤍'}
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
     </div>
   );
 };
