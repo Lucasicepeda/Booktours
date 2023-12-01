@@ -11,7 +11,7 @@ function Categorias({ setShowCards }) {
 
   useEffect(() => {
     const catgorias = async () => {
-      const cat = await category();
+      const cat = await categories();
       setCategory(cat.result);
     };
     catgorias();
@@ -37,7 +37,7 @@ function Categorias({ setShowCards }) {
       <div className='categorias'>
         <h2>Categorias</h2>
         <div className='categoryCards'>
-          {categorie.map((categ) => (
+          {category.map((categ) => (
             <div className='unidCardCategory' key={categ._id} onClick={() => handleCategory(categ.name)}>
               <h4 className='textCardCat'>{categ.name}</h4>
               <img src={categ.url} alt={categ.name} />

@@ -37,6 +37,12 @@ const Purchase = () => {
     return (
         <div>
             <h2>Confirmar Reserva</h2>
+            <h3>Desde: {dataObj.startDate}</h3>
+            <h3>Hasta: {dataObj.endDate}</h3>
+            <h3>Lugar: {product.product.title}</h3> 
+            <img src={product.product.img[0].imgUrl} />
+            <h3>Usuario: {user.data.name}</h3>
+            
         </div>
     );
 };
