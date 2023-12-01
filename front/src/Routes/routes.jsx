@@ -12,5 +12,5 @@ export const routes = {
   bookings: '/bookings',
   listUser: '/ListUsers',
   updateProduct: '/updateproduct/:id',
-  BookingConfirm: '/BookingConfirm'
+  purchase: '/purchase'
 };

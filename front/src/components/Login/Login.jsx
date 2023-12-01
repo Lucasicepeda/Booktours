@@ -7,6 +7,9 @@ const Logins = () => {
 
     const [values, setValues] = useState({ email: '', password: '' });
 
+
+    const from = new URLSearchParams(window.location.search).get('from');
+
     const handleInputChange = (e) => {
         setValues({
             ...values,
@@ -32,7 +35,7 @@ const Logins = () => {
 
         if (data.data.accesToken) {
             localStorage.setItem('token', data.data.accesToken);
-            window.location = '/';
+            window.location = from;
         };
     };
 
