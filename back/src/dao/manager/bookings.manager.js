@@ -11,6 +11,20 @@ export default class Booking {
     };
 
     updateById = async (booking) => {
-        return await bookingModel.findByIdAndUpdate({_id: booking._id}, booking);
+        return await bookingModel.findByIdAndUpdate({ _id: booking._id }, booking);
+    };
+
+    getByDate = async (startDate, endDate) => {
+        return await bookingModel.find({
+            'date': {
+                $elemMatch: {
+                    $or: [
+                        { startDate: { $gte: startDate.toDate(), $lte: endDate.toDate() } },
+                        { endDate: { $gte: startDate.toDate(), $lte: endDate.toDate() } },
+                        { startDate: { $lte: startDate.toDate() }, endDate: { $gte: endDate.toDate() } },
+                    ],
+                },
+            },
+        });
     };
 };

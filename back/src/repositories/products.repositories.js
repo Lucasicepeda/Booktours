@@ -47,4 +47,9 @@ export default class ProductRepository {
         const result = await productManager.uploader(id, product);
         return result;
     };
+
+    getOthers = async (id) => {
+        const result = await productManager.getOthers(id);
+        return result;
+    };
 };

@@ -8,8 +8,8 @@ const bookingSchema = new mongoose.Schema({
     date: [
         {
             user: { type: String, required: true },
-            startDate: { type: String, required: true },
-            endDate: { type: String, required: true }
+            startDate: { type: Date, required: true },
+            endDate: { type: Date, required: true }
         }
     ]
 });

@@ -65,7 +65,7 @@ function Header() {
           <button id="loginButton" className={`divButtons ${token ? 'buttonOff' : 'buttonOn'}`}>
             {token ?
               (<Link onClick={handleLogout}>Cerrar Sesión</Link>) :
-              (<Link to="/login">Iniciar Sesión</Link>)}
+              (<Link to="/login?from=/">Iniciar Sesión</Link>)}
           </button>
         </div>
 

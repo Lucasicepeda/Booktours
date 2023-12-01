@@ -45,4 +45,8 @@ export default class Product {
     uploader = async (id, product) => {
         return await productModel.findByIdAndUpdate({ _id: id }, product, { new: true }).lean();
     };
+
+    getOthers = async (id) => {
+        return await productModel.find({ _id: { $nin: id } });
+    };
 };

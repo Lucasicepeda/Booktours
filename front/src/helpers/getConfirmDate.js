@@ -1,10 +1,9 @@
-const newBooking = async (book) => {
+const getConfirmDate = async (date) => {
 
     const token = localStorage.getItem('token');
-    
-    const response = await fetch('http://localhost:8080/api/booking', {
-        method: 'POST',
-        body: JSON.stringify(book),
+
+    const response = await fetch(`http://localhost:8080/api/booking/conf/${date.startDate}/${date.endDate}/${date.idProduct}`, {
+        method: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -16,4 +15,4 @@ const newBooking = async (book) => {
     return content;
 };
 
-export { newBooking };
+export { getConfirmDate }

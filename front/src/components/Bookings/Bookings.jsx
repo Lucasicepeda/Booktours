@@ -4,9 +4,10 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import es from 'date-fns/locale/es';
 import { getBooking } from '../../helpers/getBooking.js';
-import { newBooking } from '../../helpers/newBooking.js';
+import { getConfirmDate } from '../../helpers/getConfirmDate.js';
 import './booking.css';
 import Swall from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const getAllDatesBetweenRanges = (dateRanges) => {
     let allDates = [];
@@ -26,6 +27,8 @@ const Bookings = ({ idProduct }) => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [data, setData] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const allDate = async () => {
@@ -48,9 +51,11 @@ const Bookings = ({ idProduct }) => {
             book.idProduct = idProduct;
             book.startDate = moment(startDate).format('YYYY-MM-DD');
             book.endDate = moment(endDate).format('YYYY-MM-DD');
-            const response = await newBooking(book);
+            book.idProduct = idProduct;
+            const response = await getConfirmDate(book);
+            const stringBook = JSON.stringify(book);
 
-            if (response && response.error) {
+            if (response.error) {
                 Swall.fire({
                     text: response.error,
                     toast: true,
@@ -62,15 +67,16 @@ const Bookings = ({ idProduct }) => {
                 }, 3000);
             };
 
-            if (response && response.data.status === 'success') {
+            if (response.data.status === 'success') {
                 Swall.fire({
-                    text: 'Hemos registardo con exito la reserva',
+                    text: 'Estas a un paso de que el producto sea tuyo',
                     toast: true,
                     position: "top-right",
-                    showConfirmButton: false
+                    showConfirmButton: false,
+                    timer: 2000
                 });
                 setTimeout(() => {
-                    window.location = '/';
+                    navigate(`/purchase?data=${stringBook}`);
                 }, 3000);
             };
         };

@@ -23,4 +23,30 @@ const getProductById = async (req, res) => {
     };
 };
 
-export { save, getProductById };
+const getByDate = async (req, res) => {
+    const startDate = req.params.startdate;
+    const endDate = req.params.enddate;
+    try {
+        const result = await bookingService.getByDate(startDate, endDate);
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+        if (error instanceof BookingNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+}
+
+const confirmDate = async (req, res) => {
+    const startDate = req.params.startdate;
+    const endDate = req.params.enddate;
+    const idProduct = req.params.idProduct;
+    try {
+        const result = await bookingService.confirmDate(startDate, endDate, idProduct);
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+
+        if (error instanceof BookingNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};  
+
+export { save, getProductById, getByDate, confirmDate };
