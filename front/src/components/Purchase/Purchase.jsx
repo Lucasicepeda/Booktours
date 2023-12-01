@@ -42,7 +42,7 @@ const Purchase = () => {
             <h3>Lugar: {product.product.title}</h3> 
             <img src={product.product.img[0].imgUrl} />
             <h3>Usuario: {user.data.name}</h3>
-            
+            {/* BOTON CONFIRMAR RESERVA Y BOTON VOLVER ATRAS */}
         </div>
     );
 };
