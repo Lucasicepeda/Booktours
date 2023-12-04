@@ -67,10 +67,10 @@ const Cards = () => {
                 {(productos && productos.hasPrevPage === true) && <button onClick={handlePrevPage}>{productos.prevPage}</button>}
                 {/* {productos.page && <p> <span>{productos.page}</span></p>} */}
                 {productos.page && (
-                    <p>
+                    <div>
                         {" "}
-                        <div className="select-page"><span>{productos.page}</span></div>
-                    </p>
+                        <p className="select-page"><span>{productos.page}</span></p>
+                    </div>
                 )}
                 {(productos && productos.hasNextPage === true) && <button onClick={handleNextPage}>{productos.nextPage}</button>}
             </div>
