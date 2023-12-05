@@ -36,6 +36,9 @@
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.555);
     max-width: 800px;
 }
+.resumenReserva h3{
+    padding-bottom: 10px;
+}
 
 /* *{
     justify-self: start;
@@ -46,9 +49,7 @@
     justify-content: space-between;
 }
 
-.resumenReserva h3{
-    padding-bottom: 10px;
-}
+
 
 .left h4{
     padding-bottom: 10px;
@@ -58,4 +59,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media screen and (max-width:768px) { /*  TABLET */
+    .resumenReserva{
+        margin: 50px 30px;
+        padding: 15px;
+    }
+
+}
+
+@media screen and (max-width:425px) { /*  MOVIL */
+    .datosReserva{
+        flex-direction: column;
+    }
+    .producto img{
+        width: 75vw;
+        margin-top: 20px;
+    }
+
 }
