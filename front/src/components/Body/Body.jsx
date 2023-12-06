@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './newBody.css';
 import React, { useState } from 'react';
 import Buscador from '../Buscador/Buscador.jsx';
@@ -25,8 +26,15 @@ function Body() {
       <BookingsBody setSearchDate={setSearchDate}/>
       <Categorias setShowCards={setShowCards} />
       {searchDate ? <DateCards data={searchDate}/> : showCards ? <Cards /> : <BuscadorCards info={searchInfo} />}
+      
+      {/* WhatsApp Icon */}
+      <div className="whatsapp-icon">
+        <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer">
+          <img src="./src/assets/whatsapp.png" alt="WhatsApp" />
+        </a>
+      </div>
     </div>
   );
-};
+}
 
 export default Body;

@@ -117,3 +117,22 @@
         min-height:30vh
     }
 }
+
+  
+  .whatsapp-icon {
+    position: fixed;
+    margin-bottom: 20%;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .whatsapp-icon img {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;
+  }
+  
