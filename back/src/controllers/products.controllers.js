@@ -66,6 +66,9 @@ const uploader = async (req, res) => {
         const result = await productService.uploader(product, imgName, imgUrl);
         if (result) return res.sendSuccess(result);
     } catch (error) {
+
+        console.log(error.message); // Borrar errores <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
         if (error instanceof ProductNotFound) return res.sendClientError(error.message);
         res.sendServerError(error.message);
     };

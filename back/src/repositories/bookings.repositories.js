@@ -21,4 +21,9 @@ export default class BookingRepository {
         const result = await bookingManager.getByDate(startDate, endDate);
         return result;
     };
+
+    getByUser = async (name) => {
+        const result = await bookingManager.getByUser(name);
+        return result;
+    };
 };

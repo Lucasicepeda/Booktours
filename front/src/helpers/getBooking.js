@@ -1,4 +1,5 @@
 const getBooking = async (idProduct) => {
+
     const token = localStorage.getItem('token');
     
     const response = await fetch(`http://localhost:8080/api/booking/${idProduct}`, {
@@ -9,6 +10,7 @@ const getBooking = async (idProduct) => {
             'Authorization': `Bearer ${token}`,
         }
     });
+
     const content = await response.json();
     return content.data.data;
 };

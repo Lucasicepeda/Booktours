@@ -1,12 +1,12 @@
-const newProduct = async (product) => {
-
+const newFavorite = async (favorite) => {
     const token = localStorage.getItem('token');
-    
-    const response = await fetch('http://localhost:8080/api/product', {
+
+    const response = await fetch('http://localhost:8080/api/favorite', {
         method: 'POST',
-        body: product,
+        body: JSON.stringify(favorite),
         headers: {
             'Accept': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
         }
     });
@@ -15,4 +15,4 @@ const newProduct = async (product) => {
     return content;
 };
 
-export { newProduct };
+export { newFavorite };

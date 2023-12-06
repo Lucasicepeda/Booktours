@@ -27,4 +27,8 @@ export default class Booking {
             },
         });
     };
+
+    getByUser = async (name) => {
+        return await bookingModel.find({ 'date': { $elemMatch: { 'user': name } } }).lean();
+    };
 };

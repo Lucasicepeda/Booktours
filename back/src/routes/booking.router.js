@@ -8,5 +8,6 @@ export default class BookingRouter extends Router {
         this.get('/:idProduct', ['ADMIN', 'USER'], passportEnum.JWT, bookingController.getProductById);
         this.get('/date/:startdate/:enddate', ['PUBLIC'], passportEnum.NOTHING, bookingController.getByDate);
         this.get('/conf/:startdate/:enddate/:idProduct', ['ADMIN', 'USER'], passportEnum.JWT, bookingController.confirmDate);
+        this.get('/', ['ADMIN', 'USER'], passportEnum.JWT, bookingController.getByUser);
     };
 };

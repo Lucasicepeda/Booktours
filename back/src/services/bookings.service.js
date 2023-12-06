@@ -10,8 +10,8 @@ const save = async (booking, user) => {
     };
 
     const dayNotFound = await bookingRepository.getByDate(moment(startDate), moment(endDate));
-    const failure = dayNotFound.find((prod) =>prod.idProduct === booking.idProduct);
-    if(failure) throw new BookingNotFound('La fecha ya se encuentra reservada');
+    const failure = dayNotFound.find((prod) => prod.idProduct === booking.idProduct);
+    if (failure) throw new BookingNotFound('La fecha ya se encuentra reservada');
 
     const product = await bookingRepository.getProductById(booking.idProduct);
     if (!product) {
@@ -54,9 +54,24 @@ const getByDate = async (startDate, endDate) => {
 
 const confirmDate = async (startDate, endDate, idProduct) => {
     const dayNotFound = await bookingRepository.getByDate(moment(startDate), moment(endDate));
-    const failure = dayNotFound.find((prod) =>prod.idProduct === idProduct);
-    if(failure) throw new BookingNotFound('La fecha ya se encuentra reservada');
+    const failure = dayNotFound.find((prod) => prod.idProduct === idProduct);
+    if (failure) throw new BookingNotFound('La fecha ya se encuentra reservada');
     return { status: 'success' };
 };
 
-export { save, getProductById, getByDate, confirmDate }; 
+const getByUser = async ({ user }) => {
+    const userDb = await bookingRepository.getByUser(user.name);
+    if (!userDb) throw new BookingNotFound('No tienes registro de reservas');
+
+    const result = userDb.map((prod) => {
+        return {
+            ...prod,
+            date: prod.date.filter((book) => book.user === user.name)
+        };
+    });
+
+    console.log(result);
+    return { status: 'success', userDb: result };
+};
+
+export { save, getProductById, getByDate, confirmDate, getByUser }; 

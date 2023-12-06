@@ -1,8 +1,8 @@
-const getConfirmDate = async (date) => {
+const getFavorite = async () => {
 
     const token = localStorage.getItem('token');
 
-    const response = await fetch(`http://localhost:8080/api/booking/conf/${date.startDate}/${date.endDate}/${date.idProduct}`, {
+    const response = await fetch('http://localhost:8080/api/favorite', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -12,7 +12,7 @@ const getConfirmDate = async (date) => {
     });
 
     const content = await response.json();
-    return content;
+    return content.data.result;
 };
 
-export { getConfirmDate }
+export { getFavorite };

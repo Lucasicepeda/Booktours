@@ -69,17 +69,17 @@ function Header() {
               (<Link to="/login?from=/">Iniciar Sesión</Link>)}
           </button>
           <div className='btnHeader'>
-                <button>
-                  <Link>
+                <button >
+                  <Link to="/listBooking">
                     <FontAwesomeIcon icon={faBookOpen} />
                   </Link>
                 </button>
                 <button>
                   <Link>
                     <FontAwesomeIcon icon={faHeart} />
-                  </Link>
+                    </Link>
                 </button>
-              </div>
+          </div>
         </div>
         <button className={`menuButton ${menuVisible ? 'active' : ''}`} onClick={toggleMenu}>
           ☰
@@ -99,13 +99,17 @@ function Header() {
                 (<Link to="/login">Iniciar Sesión</Link>)}
             </button>
             <div className='btnHeader'>
-              <button>
-                <Link>
-                </Link>
-                <Link>
-                </Link>
-              </button>
-            </div>
+                <button>
+                  <Link>
+                    <FontAwesomeIcon icon={faBookOpen} />
+                  </Link>
+                </button>
+                <button>
+                  <Link>
+                    <FontAwesomeIcon icon={faHeart} />
+                    </Link>
+                </button>
+          </div>
           </div>
         </div>
 

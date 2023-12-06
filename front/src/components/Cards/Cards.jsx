@@ -2,14 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { getProducts } from '../../helpers/getProducts.js';
 import './cards.css';
 import { Link } from 'react-router-dom';
+import { newFavorite } from '../../helpers/newFavorite.js';
+import { getFavorite } from '../../helpers/getFavorites.js';
 
 const Cards = () => {
     const [productos, setProductos] = useState([]);
+    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const products = async () => {
             const product = await getProducts({ random: 1 });
             setProductos(product.products);
+            const fav = await getFavorite();
+            fav && setFavorites(prevFavorites => [...prevFavorites, ...fav.products]);
         };
         products();
     }, []);
@@ -23,13 +28,18 @@ const Cards = () => {
         const product = await getProducts({ page: productos.prevPage, random: 2 });
         setProductos(product.products);
     };
-    const [favorites, setFavorites] = useState({});
-    const addFav = (productId) => {
-        setFavorites((prevFavorites) => ({
-            ...prevFavorites,
-            [productId]: !prevFavorites[productId],
-        }));
+
+    const addFav = async (productId) => {
+        setFavorites(prevFavorites => {
+            const isFavorite = prevFavorites.includes(productId);
+            const updatedFavorites = isFavorite
+                ? prevFavorites.filter(id => id !== productId)
+                : [...prevFavorites, productId];
+            newFavorite(updatedFavorites);
+            return updatedFavorites;
+        });
     };
+
     return (
         <div>
             <div className='cards'>
@@ -56,7 +66,7 @@ const Cards = () => {
                                 onClick={() => addFav(prod._id)}
                                 className="favButton"
                             >
-                                {favorites[prod._id] ? '❤️' : '🤍'}
+                                {favorites.includes(prod._id) ? '❤️' : '🤍'}
                             </button>
                         </div>
                     </div>

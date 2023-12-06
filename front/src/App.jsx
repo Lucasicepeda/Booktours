@@ -17,6 +17,7 @@ import DetailContainer from './components/DetailContainer/DetailContainer';
 import ListUsers from './components/PanelAdmin/ListUsers/ListUsers';
 import UpdateProduct from './components/PanelAdmin/UpdateProduct/UpdateProduct';
 import Purchase from './components/purchase/purchase';
+import ListBooking from './components/listBooking/listBooking';
 
 /* Test Gabo */
 
@@ -50,6 +51,7 @@ function App() {
 					<Route path={routes.listUser} element={<ListUsers />}/>
 					<Route path={routes.updateProduct} element={<UpdateProduct />}/>
 					<Route path={routes.purchase} element={<Purchase />}/>
+					<Route path={routes.listBooking} element={<ListBooking />}/>
 				</Routes>
 				{ <Footer /> }
 			</div>
