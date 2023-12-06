@@ -57,9 +57,29 @@ button{
   background: brown;
 }
 
+.btnHeader button{
+    color: rgb(255, 255, 255);
+    background-color: #243C58;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 0px 0px 10px 10px;
+    transition: 0.3s;
+    text-decoration: none;
+    border: none;
+    margin: 0px 5px;
+}
+
+.btnHeader{
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+}
 /* Change button color on hover */
 .divButtons button:hover {
-  background-color: #357c38;
+  background-color: #354e7c;
 }
 
 a {

@@ -1,8 +1,9 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import './header.css';
 import { Link } from "react-router-dom";
 import { current } from '../../helpers/current.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookOpen, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -67,8 +68,19 @@ function Header() {
               (<Link onClick={handleLogout}>Cerrar Sesión</Link>) :
               (<Link to="/login?from=/">Iniciar Sesión</Link>)}
           </button>
+          <div className='btnHeader'>
+                <button>
+                  <Link>
+                    <FontAwesomeIcon icon={faBookOpen} />
+                  </Link>
+                </button>
+                <button>
+                  <Link>
+                    <FontAwesomeIcon icon={faHeart} />
+                  </Link>
+                </button>
+              </div>
         </div>
-
         <button className={`menuButton ${menuVisible ? 'active' : ''}`} onClick={toggleMenu}>
           ☰
         </button>
@@ -86,6 +98,14 @@ function Header() {
                 (<Link onClick={handleLogout}>Cerrar Sesión</Link>) :
                 (<Link to="/login">Iniciar Sesión</Link>)}
             </button>
+            <div className='btnHeader'>
+              <button>
+                <Link>
+                </Link>
+                <Link>
+                </Link>
+              </button>
+            </div>
           </div>
         </div>
 
