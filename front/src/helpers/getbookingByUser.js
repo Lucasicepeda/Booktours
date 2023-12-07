@@ -12,7 +12,7 @@ const getBookingByUser = async () => {
     });
 
     const content = await response.json();
-    return content.data.data;
+    return content;
 };
 
 export { getBookingByUser };

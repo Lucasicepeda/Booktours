@@ -11,11 +11,7 @@ const ListBooking = () => {
     }, [])
     return (
         <div>
-            {/* <br />
-            <br />
-            <br />
-            <br />
-            <br /> */}
+            {/* con getProductbyId traigo la info del producto*/}
             <h2>getBookingByUser</h2>
         </div>
     )
