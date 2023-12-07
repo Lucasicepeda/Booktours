@@ -6,6 +6,7 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    padding: 20px 0px;
 }
 
 .bookingsBody h4 {
@@ -17,6 +18,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 15px;
 }
 
 .btnBookingBody {
@@ -33,4 +35,12 @@
 
 .btnBookingBody:hover {
     background-color: #213552;
+}
+
+@media screen and (max-width:768px) { /*TABLET*/
+
+    .btnBookingBody {
+        width: 100px;
+        margin-top: 20px;
+    }
 }

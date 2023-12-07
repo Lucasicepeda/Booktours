@@ -63,15 +63,21 @@ const getByUser = async ({ user }) => {
     const userDb = await bookingRepository.getByUser(user.name);
     if (!userDb) throw new BookingNotFound('No tienes registro de reservas');
 
-    const result = userDb.map((prod) => {
+    const result = await Promise.all(userDb.map(async (prod) => {
+        const products = await productRepository.getById(prod.idProduct);
         return {
             ...prod,
-            date: prod.date.filter((book) => book.user === user.name)
+            date: prod.date.filter((book) => book.user === user.name),
+            product: {
+                title: products.title,
+                price: products.price,
+                img: products.img[0].imgUrl
+            }
         };
-    });
+    }));
 
-    console.log(result);
     return { status: 'success', userDb: result };
 };
+
 
 export { save, getProductById, getByDate, confirmDate, getByUser }; 

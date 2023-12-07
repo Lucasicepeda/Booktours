@@ -15,9 +15,6 @@ const Purchase = () => {
 	const data = new URLSearchParams(window.location.search).get("data");
 	const dataObj = JSON.parse(data);
 
-	// console.log(dataObj); // <<<<<<<<< Fecha de entrada, de salida.
-	// console.log(date);
-	// console.log(product);  // <<<<<<<<< Acá vienen los productos.
 	const HandleBack = () => {
 		navigate(-1);
 	};
@@ -36,8 +33,6 @@ const Purchase = () => {
 	}, []);
 
 	const handleNewBooking = async () => {
-		// cuando haga click en algun boton para confirmar llamara a la función handleNewBooking
-		// Para guardar la reserva en la base de datos.
 		console.log("Botón clickeado. Ejecutando handleNewBooking...", dataObj);
 		try {
 			const response = await newBooking(dataObj);
@@ -60,7 +55,6 @@ const Purchase = () => {
 
 	return (
 		<div className="resumenReserva">
-			{/* <h2>Confirmacion de la reserva</h2> */}
 			<div className="datosReserva">
 				<div>
 					<h3>Resumen de tu reserva: </h3>
