@@ -3,7 +3,7 @@ async function current() {
     const token = localStorage.getItem('token');
 
     if (token) {
-        const response = await fetch('http://localhost:8080/api/user', {
+        const response = await fetch('http://52.55.101.199:8080/api/user', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

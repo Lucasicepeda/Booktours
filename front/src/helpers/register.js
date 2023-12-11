@@ -1,6 +1,6 @@
 
 async function postRegister(value) {
-    const response = await fetch('http://localhost:8080/api/user/register', {
+    const response = await fetch('http://52.55.101.199:8080/api/user/register', {
         method: 'POST',
         body: JSON.stringify(value),
         headers: {

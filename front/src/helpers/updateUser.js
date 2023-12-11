@@ -2,7 +2,7 @@ const updateUser = async (data) => {
 
     const token = localStorage.getItem('token');
 
-    const response = await fetch('http://localhost:8080/api/user', {
+    const response = await fetch('http://52.55.101.199:8080/api/user', {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {

@@ -2,7 +2,7 @@ const getAllUsers = async () => {
 
     const token = localStorage.getItem('token');
 
-    const response = await fetch('http://localhost:8080/api/user/all', {
+    const response = await fetch('http://52.55.101.199:8080/api/user/all', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',

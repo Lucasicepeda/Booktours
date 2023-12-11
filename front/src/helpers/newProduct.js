@@ -2,7 +2,7 @@ const newProduct = async (product) => {
 
     const token = localStorage.getItem('token');
     
-    const response = await fetch('http://localhost:8080/api/product', {
+    const response = await fetch('http://52.55.101.199:8080/api/product', {
         method: 'POST',
         body: product,
         headers: {

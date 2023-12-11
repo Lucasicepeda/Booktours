@@ -1,6 +1,6 @@
 const getProductByDate = async (date) => {
 
-    const response = await fetch(`http://localhost:8080/api/booking/date/${date.startDate}/${date.endDate}`, {
+    const response = await fetch(`http://52.55.101.199:8080/api/booking/date/${date.startDate}/${date.endDate}`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',

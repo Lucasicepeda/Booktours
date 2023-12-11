@@ -2,7 +2,7 @@ const newBooking = async (book) => {
 
     const token = localStorage.getItem('token');
     
-    const response = await fetch('http://localhost:8080/api/booking', {
+    const response = await fetch('http://52.55.101.199:8080/api/booking', {
         method: 'POST',
         body: JSON.stringify(book),
         headers: {

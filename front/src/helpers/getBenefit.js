@@ -1,5 +1,5 @@
 const getBenefit = async () => {
-    const response = await fetch('http://localhost:8080/api/benefit', {
+    const response = await fetch('http://52.55.101.199:8080/api/benefit', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
