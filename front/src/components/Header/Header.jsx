@@ -39,7 +39,7 @@ function Header() {
     <header>
       <div className='divNav'>
         <a href="/"> {/* Establece la URL de tu página principal */}
-          <img src='./src/assets/logo.png' alt='logo' />
+          <img src='../src/assets/logo.png' alt='logo' />
         </a>
         <span><Link to="/">Viví experiencias inolvidables</Link></span>
       </div>
